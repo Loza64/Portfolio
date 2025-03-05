@@ -1,1 +1,24 @@
-<p>navbar works!</p>
+<div class="navbar-container">  
+    <nav>  
+        <a [routerLink]="['/']" aria-label="Ir a la página de inicio">   
+                <span>Home</span>  
+                <mat-icon class="icono">home</mat-icon>  
+        </a>  
+        <a [routerLink]="['/services']" aria-label="Ver servicios">   
+                <span>Servicios</span>  
+                <mat-icon class="icono">business</mat-icon>  
+        </a>  
+        <a [routerLink]="['/projects']" aria-label="Ver proyectos">   
+                <span>Proyectos</span>  
+                <mat-icon class="icono">code</mat-icon>  
+        </a>  
+        <a [routerLink]="['/about']" aria-label="Ir a información">   
+                <span>Información</span>  
+                <mat-icon class="icono">account_circle</mat-icon>  
+        </a>  
+        <a [routerLink]="['/contact']" aria-label="Contacto">   
+                <span>Contacto</span>  
+                <mat-icon class="icono">mail</mat-icon>  
+        </a>  
+    </nav>  
+</div>  
