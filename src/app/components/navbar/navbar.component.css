@@ -1,25 +1,25 @@
 .navbar-container {
-    display: flex;
     position: fixed;
+    display: flex;
     align-items: center;
     bottom: 0;
     left: 0;
     width: auto;
     height: 100vh;
-    margin: 10px 0;
 }
 
 .navbar-container nav {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     height: 90vh;
-    padding: 5px;
-    background-color: black;
+    padding: 8px;
+    backdrop-filter: blur(15px);
     border-radius: 5px;
-    margin: 10px;
-    box-shadow: 4.5px 4.5px 4.5px rgb(153, 255, 0);
+    margin: 10px 5px;
+    box-shadow: 4px 4px 4px rgb(153, 255, 0);
     animation-name: fadeIn;
     animation-duration: 1s;
     animation-fill-mode: forwards;
@@ -32,34 +32,61 @@
         transform: translateX(-10px);
         opacity: 0;
     }
+
     to {
         transform: translateX(0);
         opacity: 1;
     }
 }
 
+/********** Navbar Media **********/
+@media only screen and (max-width: 600px) {
+    .navbar-container {
+        height: auto;
+        width: 100vw;
+        bottom: 0;
+    }
+
+    .navbar-container nav {
+        height: auto;
+        flex-direction: row;
+        margin: 12px;
+        animation-name: fadeInY;
+    }
+
+    @keyframes fadeInY {
+        from {
+            transform: translateY(10px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+}
+
+
+/********** a desing **********/
 .navbar-container a {
     color: white;
     text-decoration: none;
     font-size: 1.5rem;
-    margin: 10px 0;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    font-weight: bold;
     border-radius: 100%;
     transition: all .3s ease-in-out;
-}
-
-.navbar-container a:hover {
-    background-color: rgb(153, 255, 0);
-    color: #000;
+    margin: 10px 0px;
 }
 
 .navbar-container a span {
     position: absolute;
     left: -50px;
     color: black;
+    font-weight: 900;
     opacity: 0;
     transition: all .3s ease-in-out;
     padding: 5px;
@@ -70,7 +97,7 @@
     opacity: 1;
     background-color: rgb(153, 255, 0);
     color: #000;
-    left: 60px;
+    left: 62px;
     border-radius: 5px;
 }
 
@@ -79,6 +106,56 @@
     height: auto;
     font-weight: 400;
     font-size: 2rem;
-    padding: 5px;
+    padding: 3px;
+    border-radius: 100%;
     z-index: 2;
+    transition: all .3s ease-in-out;
+    font-weight: bold;
+}
+
+.navbar-container .active mat-icon {
+    background-color: rgb(153, 255, 0);
+    color: black;
+    transform: scale(120%);
+}
+
+.navbar-container a:hover mat-icon {
+    background-color: rgb(153, 255, 0);
+    color: black;
+    transform: scale(120%);
+}
+
+
+/********** a Media **********/
+@media only screen and (max-width: 600px) {
+    .navbar-container a {
+        flex-direction: column;
+        padding: 0;
+        margin: 5px 15px;
+    }
+
+    .navbar-container a span {
+        display: none;
+    }
+
+    .navbar-container a mat-icon {
+        padding: 5px;
+        font-size: 35px;
+    }
+
+    .navbar-container a:hover mat-icon {
+        transform: scale(130%);
+    }
+
+    .navbar-container .active mat-icon {
+        transform: scale(130%);
+    }
+
+}
+
+@media only screen and (max-width: 400px){
+    .navbar-container a mat-icon {
+        font-size: 25px;
+        padding: 2px;
+    }
 }
