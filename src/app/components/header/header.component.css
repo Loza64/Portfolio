@@ -1,0 +1,220 @@
+header {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 4.5rem;
+    overflow: hidden;
+    gap: 2rem
+}
+
+@media only screen and (max-width: 780px) {
+    header {
+        flex-direction: column-reverse;
+        padding: 3rem 1rem;
+        height: auto;
+    }
+}
+
+/** content */
+header .content {
+    width: 100%;
+    max-width: 60rem;
+}
+
+header .content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    animation: h1-animate 2s forwards;
+}
+
+@keyframes h1-animate {
+    0% {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+header .content h1 span {
+    color: rgb(153, 255, 0);
+    margin-bottom: 1rem;
+}
+
+
+header .content p {
+    font-size: 1.2rem;
+    color: rgb(145, 145, 145);
+    margin-bottom: 2.5rem;
+    font-weight: bold;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    animation: typing-paragraph 4s steps(200, end) forwards, line-by-line 4s forwards;
+    animation-fill-mode: forwards;
+    white-space: pre-line;
+}
+
+@keyframes typing-paragraph {
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+
+header .content p .cursor {
+    padding: 0 4.5px;
+    background-color: rgb(153, 255, 0);
+    margin: 0 4px;
+    animation: cursor-effect .5s alternate infinite; 
+    display: inline-bloc
+}
+
+@keyframes cursor-effect {
+    0% {
+        background-color: transparent;
+    }
+
+    100% {
+        background-color: rgb(153, 255, 0);
+    }
+}
+
+header .content a {
+    background: rgb(153, 255, 0);
+    color: black;
+    padding: 1rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+    width: auto;
+    font-weight: 900;
+}
+
+@media only screen and (max-width:1280px) {
+    header .content h1 {
+        font-size: 2.4rem;
+    }
+
+    header .content p {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width:955px) {
+    header .content h1 {
+        font-size: 2rem;
+    }
+
+    header .content a {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    header .content {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    header .content h1 {
+        font-size: 2.5rem;
+    }
+
+    header .content p {
+        font-size: 1.2rem;
+    }
+
+    header .content a {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    header .content h1 {
+        font-size: 1.8rem;
+    }
+
+    header .content p {
+        font-size: 0.8rem;
+    }
+
+    header .content a {
+        font-size: 1rem;
+    }
+}
+
+/** Image */
+header .img-container {
+    width: 100%;
+    max-width: 20rem;
+    transition: all .3s ease-in-out;
+    box-shadow: rgb(153, 255, 0) 0px 0px 10px 10px;
+    border-radius: 10px;
+    transition: all .3s ease-in-out;
+    animation-name: shadow-img;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transform: rotate(10deg);
+
+}
+
+@keyframes shadow-img {
+    0% {
+        box-shadow: 0 0 5px 5px rgb(153, 255, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 10px 10px rgb(153, 255, 0);
+    }
+}
+
+@media only screen and (max-width: 880px) {
+    header .img-container {
+        width: auto;
+        max-width: 15rem;
+    }
+}
+
+header .img-container .border-green {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: rgb(153, 255, 0);
+    transform: rotate(10deg);
+}
+
+header .img-container .border-green .border-white {
+    width: 100%;
+    height: 100%;
+    background: white;
+    transform: rotate(-40deg);
+    border-radius: 10px;
+}
+
+header .img-container .border-green .border-white img {
+    width: 100%;
+    border-radius: 10px;
+    transform: rotate(20deg);
+    padding: .2rem;
+
+}
+
+@media only screen and (max-width: 420px) {
+    header .img-container {
+        max-width: 10rem;
+    }
+
+    header .img-container .border-green .border-white img {
+        padding: none;
+    }
+
+}

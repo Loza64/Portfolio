@@ -91,6 +91,7 @@
     transition: all .3s ease-in-out;
     padding: 5px;
     z-index: 0;
+    pointer-events: none;
 }
 
 .navbar-container a:hover span {
@@ -120,37 +121,36 @@
 
 .navbar-container .active:hover mat-icon {
     color: black;
-    transform: scale(135%);
+    transform: scale(130%);
 }
 
 .navbar-container .active mat-icon {
     background-color: rgb(153, 255, 0);
     color: black;
-    transform: scale(135%);
+    transform: scale(130%);
 }
 
 
 /********** a Media **********/
-@media only screen and (max-width: 600px) {
-    .navbar-container a {
-        flex-direction: column;
-        padding: 0;
-        margin: 1px 15px;
-    }
-
+@media only screen and (max-width: 1280px) {
     .navbar-container a span {
         display: none;
     }
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar-container a {
+        flex-direction: column;
+        margin: 1px 15px;
+    }
 
     .navbar-container a mat-icon {
-        padding: 5px;
-        font-size: 35px;
+        font-size: 30px;
     }
 }
 
-@media only screen and (max-width: 400px){
+@media only screen and (max-width: 400px) {
     .navbar-container a mat-icon {
         font-size: 25px;
-        padding: 2px;
     }
 }
