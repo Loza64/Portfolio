@@ -84,7 +84,7 @@
 
 .navbar-container a span {
     position: absolute;
-    left: -50px;
+    left: 31px;
     color: black;
     font-weight: 900;
     opacity: 0;
@@ -97,7 +97,7 @@
     opacity: 1;
     background-color: rgb(153, 255, 0);
     color: #000;
-    left: 62px;
+    left: 60px;
     border-radius: 5px;
 }
 
@@ -106,23 +106,27 @@
     height: auto;
     font-weight: 400;
     font-size: 2rem;
-    padding: 3px;
+    padding: 2.5px;
     border-radius: 100%;
     z-index: 2;
     transition: all .3s ease-in-out;
     font-weight: bold;
 }
 
+.navbar-container a:hover mat-icon {
+    color: rgb(153, 255, 0);
+    transform: scale(130%);
+}
+
+.navbar-container .active:hover mat-icon {
+    color: black;
+    transform: scale(135%);
+}
+
 .navbar-container .active mat-icon {
     background-color: rgb(153, 255, 0);
     color: black;
-    transform: scale(120%);
-}
-
-.navbar-container a:hover mat-icon {
-    background-color: rgb(153, 255, 0);
-    color: black;
-    transform: scale(120%);
+    transform: scale(135%);
 }
 
 
@@ -131,7 +135,7 @@
     .navbar-container a {
         flex-direction: column;
         padding: 0;
-        margin: 5px 15px;
+        margin: 1px 15px;
     }
 
     .navbar-container a span {
@@ -142,15 +146,6 @@
         padding: 5px;
         font-size: 35px;
     }
-
-    .navbar-container a:hover mat-icon {
-        transform: scale(130%);
-    }
-
-    .navbar-container .active mat-icon {
-        transform: scale(130%);
-    }
-
 }
 
 @media only screen and (max-width: 400px){
