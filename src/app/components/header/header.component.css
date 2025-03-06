@@ -73,7 +73,7 @@ header .content p .cursor {
     padding: 0 4.5px;
     background-color: rgb(153, 255, 0);
     margin: 0 4px;
-    animation: cursor-effect .5s alternate infinite; 
+    animation: cursor-effect .5s alternate infinite;
     display: inline-bloc
 }
 
@@ -152,6 +152,13 @@ header .content a {
 }
 
 /** Image */
+
+header .img-container {
+    width: 100%;
+    border-radius: 10px;
+    animation: show-image 2s forwards;
+}
+
 header .img-container {
     width: 100%;
     max-width: 20rem;
@@ -160,10 +167,22 @@ header .img-container {
     border-radius: 10px;
     transition: all .3s ease-in-out;
     animation-name: shadow-img;
-    animation-duration: 1s;
+    animation-duration: .5s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    transform: rotate(10deg);
+    transform: rotate(15.5deg);
+}
+
+@keyframes show-image {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 
 }
 
@@ -189,21 +208,21 @@ header .img-container .border-green {
     height: 100%;
     border-radius: 10px;
     background: rgb(153, 255, 0);
-    transform: rotate(10deg);
+    transform: rotate(15deg);
 }
 
 header .img-container .border-green .border-white {
     width: 100%;
     height: 100%;
     background: white;
-    transform: rotate(-40deg);
+    transform: rotate(-50deg);
     border-radius: 10px;
 }
 
 header .img-container .border-green .border-white img {
     width: 100%;
     border-radius: 10px;
-    transform: rotate(20deg);
+    transform: rotate(19.5deg);
     padding: .2rem;
 
 }
