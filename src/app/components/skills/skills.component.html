@@ -7,13 +7,13 @@
         <button (click)="filter = 'database'">Bases de datos</button>
     </div>
     <div class="list">
-            <article *ngFor="let skill of filterSkills()">
-                <div class=" content">
-                    <img [src]="skill.url" alt="{{skill.name}}">
-                    <label>{{skill.name}}</label>
-                    <label  class="percentage">{{skill.percentage}}%</label>
-                </div>
-                <div class="bar" [style.width]="skill.percentage + '%'"></div>
-            </article>
+        <article *ngFor="let skill of filteredSkills()" #article>
+            <div class=" content">
+                <img [src]="skill.url" alt="{{skill.name}}">
+                <label>{{skill.name}}</label>
+                <label class="percentage">{{skill.percentage}}%</label>
+            </div>
+            <div class="bar" [ngStyle]="{'--percentage': skill.percentage + '%'}" [attr.data-percentage]="skill.percentage"></div>
+        </article>
     </div>
 </section>
