@@ -1,19 +1,39 @@
 <section>
     <h2>Skills</h2>
-    <div class="options">
-        <button (click)="filter = 'all'">Todos</button>
-        <button (click)="filter = 'backend'">Backend</button>
-        <button (click)="filter = 'frontend'">Frontend</button>
-        <button (click)="filter = 'database'">Bases de datos</button>
-    </div>
-    <div class="list">
-        <article *ngFor="let skill of filteredSkills()" #article>
-            <div class=" content">
-                <img [src]="skill.url" alt="{{skill.name}}">
-                <label>{{skill.name}}</label>
-                <label class="percentage">{{skill.percentage}}%</label>
+    <div class="skills">
+        <div class="technicals">
+            <h3>Tecnicos</h3>
+            <div class="options">
+                <button (click)="filter = 'backend'">Backend</button>
+                <button (click)="filter = 'frontend'">Frontend</button>
+                <button (click)="filter = 'database'">Database</button>
+                <button (click)="filter = 'others'">Otros</button>
             </div>
-            <div class="bar" [ngStyle]="{'--percentage': skill.percentage + '%'}" [attr.data-percentage]="skill.percentage"></div>
-        </article>
+            <div class="list">
+                <article *ngFor="let skill of getTechnicalList()" #articleTechnical>
+                    <div class=" content">
+                        <div class="icon">
+                            <img [src]="skill.url" alt="img">
+                            <label>{{skill.name}}</label>
+                        </div>
+                        <label class="percentage">{{skill.percentage}}%</label>
+                    </div>
+                    <div class="bar" [ngStyle]="{'--percentage': skill.percentage + '%'}"
+                        [attr.data-percentage]="skill.percentage"></div>
+                </article>
+            </div>
+        </div>
+        <div class="professional">
+            <h3>Profesionales</h3>
+            <div class="list">
+                <article *ngFor="let skill of getProfessionalList()" #articleProfessional>
+                    <div class="circle" [ngStyle]="{'--percentage': skill.percentage + '%'}" [attr.data-percentage]="skill.percentage">
+                        <div class="sub-circle">
+                        </div>
+                    </div>
+                    <span class="title">{{skill.name}}</span>
+                </article>
+            </div>
+        </div>
     </div>
 </section>

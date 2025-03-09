@@ -1,13 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, Input, Output, output, Query, QueryList, SimpleChanges, ViewChildren } from '@angular/core';
+import { Component, ElementRef, Input, IterableDiffers, Output, output, Query, QueryList, SimpleChanges, ViewChildren } from '@angular/core';
 import { DataList } from '../../services/DataList';
 import { IntersectionObserverService } from '../../services/IntersectionObserverService';
 
-interface Skill {
+interface Technical {
   name: string,
   type: string,
   percentage: number,
   url: string
+}
+
+interface Professional {
+  name: String,
+  percentage: number
 }
 
 @Component({
@@ -19,35 +24,40 @@ interface Skill {
 
 export class SkillsComponent {
 
-  skills: Skill[] = [];
-  filter: string = "all";
-  @Input() maxSkillsToShow: number | null = null;
+  private technicalsList: Technical[] = [];
+  private professionalsList: Professional[] = [];
 
-  @ViewChildren('article') articles!: QueryList<ElementRef>;
+  filter: string = "backend";
+  @Input() maxTechnicalsToShow: number | null = null;
 
-  constructor(private list: DataList, private observerSkills: IntersectionObserverService) { }
+  @ViewChildren('articleTechnical') articlesTechnicals!: QueryList<ElementRef>;
+  @ViewChildren('articleProfessional') articleProfessional!: QueryList<ElementRef>;
+
+  constructor(private list: DataList, private observerService: IntersectionObserverService) { }
 
   ngOnInit(): void {
-    this.skills = this.list.getSkills();
-    this.filteredSkills();
+    this.technicalsList = this.list.technicalsSkills();
+    this.professionalsList = this.list.professionalSkills();
+
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['maxSkillsToShow'] || changes['filter']) {
-      this.filteredSkills();
-      this.initIntersectionSkills();
+    if (changes['maxTechnicalsToShow'] || changes['filter']) {
+      this.getTechnicalList();
+      this.initObserberSkills();
     }
   }
 
-  initIntersectionSkills() {
-    this.articles.forEach(article => {
-      this.observerSkills?.observe(article.nativeElement);
+  initObserberSkills() {
+
+    //technicalSkills
+    this.articlesTechnicals.forEach(article => {
+      this.observerService?.observe(article.nativeElement);
     });
 
-    this.articles.forEach(
+    this.articlesTechnicals.forEach(
       item => {
         item.nativeElement.addEventListener('intersect', () => {
-          console.log('Element is visible');
           item.nativeElement.style = "opacity: 1; transform: translateY(0);";
 
           let bar = item.nativeElement.querySelector(".bar")
@@ -55,31 +65,68 @@ export class SkillsComponent {
         });
 
         item.nativeElement.addEventListener('notintersect', () => {
-          console.log('Element is not visible');
           item.nativeElement.style = "opacity: 0; transform: translateY(50px);";
+
+          let percentage = item.nativeElement.querySelector(".percentage");
+          percentage.value = "0%"
 
           let bar = item.nativeElement.querySelector(".bar")
           bar.style.width = "0%"
         });
       }
     )
+
+    //professionalSkills
+    this.articleProfessional.forEach(item => {
+      this.observerService.observe(item.nativeElement);
+    })
+
+    this.articleProfessional.forEach(item => {
+      item.nativeElement.addEventListener('intersect', () => {
+        let circle = item.nativeElement.querySelector(".circle")
+        const percentage = circle.dataset.percentage;
+        circle.style.opacity = 1;
+        circle.style.backgroundColor = `conic-gradient(rgb(153, 255, 0) ${percentage}%, rgb(20, 20, 20) 0%);`
+        circle.style.transform = "scale(100%)"
+        circle.style.animationName = "circle-animated"
+        console.log(circle.style)
+      })
+
+      item.nativeElement.addEventListener('notintersect', () => {
+        let circle = item.nativeElement.querySelector(".circle")
+        circle.style.opacity = 0;
+        circle.style.backgroundColor = "conic-gradient(rgb(153, 255, 0) 0%, rgb(20, 20, 20) 0%);"
+        circle.style.transform = "scale(0%)"
+        circle.style.animationName = "none"
+      })
+    })
+
   }
 
   ngAfterViewInit(): void {
-    this.initIntersectionSkills()
+    this.initObserberSkills()
   }
 
   ngOnDestroy(): void {
-    this.articles.forEach(article => {
-      this.observerSkills.unobserve(article.nativeElement);
+    //technicalSkills
+    this.articlesTechnicals.forEach(article => {
+      this.observerService.unobserve(article.nativeElement);
+    });
+
+    //professionalSkills
+    this.articleProfessional.forEach(article => {
+      this.observerService.unobserve(article.nativeElement);
     });
   }
 
-  filteredSkills(): Skill[] {
-    if (this.filter === 'all') {
-      return this.skills.slice(0, this.maxSkillsToShow || this.skills.length);
-    }
-    return this.skills.filter(skill => skill.type === this.filter).slice(0, this.maxSkillsToShow || this.skills.length);
+  getTechnicalList(): Technical[] {
+    return this.technicalsList.filter(skill => skill.type === this.filter).slice(0, this.maxTechnicalsToShow || this.technicalsList.length);
   }
+
+  getProfessionalList(): Professional[] {
+    return this.professionalsList;
+  }
+
+  //professionalSkills
 
 }
