@@ -166,6 +166,7 @@ section .skills .technicals .list article .bar {
     animation-duration: .7s;
     animation-iteration-count: 1;
     width: var(--percentage);
+    box-shadow: 2px 0px 2px 2px rgb(153, 255, 0);
 }
 
 @keyframes animated-bar {
@@ -205,74 +206,66 @@ section .skills .professional .list article {
     align-items: center;
     flex-direction: column;
     transition: all .3s ease-in-out;
-    gap: 10px;
+    gap: 20px;
 }
 
-section .skills .professional .list article .circle {
-    transition: all .3s ease-in-out;
-    overflow: hidden;
+section .skills .professional .list article span{
+    color: white;
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+section .skills .professional .list article .circle-container {
+    max-width: 120px;
+    max-height: 120px;
+    box-shadow: 0px 0px 10px 10px rgb(153, 255, 0);
     border-radius: 100%;
-    width: 7rem;
-    height: 7rem;
-    background: conic-gradient(rgb(153, 255, 0) var(--percentage), rgb(20, 20, 20) 0%);
-    box-shadow: 0px 0px 5px 5px  rgb(153, 255, 0);
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    animation-name: circle-animated;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
 }
 
+section .skills .professional .list article .circle-container svg {
+    width: 100%;
+    height: 100%;
+}
 
-section .skills .professional .list article .circle::after {
-    content: attr(data-percentage)"%";
+section .skills .professional .list article .circle-container span {
     position: absolute;
+    color: white;
+    font-weight: 900;
     font-size: 1.5rem;
-    color: white;
-    font-weight: bold;
 }
 
-@keyframes circle-animated {
+section .skills .professional .list article .circle-container svg .circle {
+    transition: all .4s ease-in-out;
+    cx: 60;
+    cy: 75;/** Pese a estar con display flex se le aumenta 15**/
+    r: 54;
+    fill: none;
+    stroke: rgb(15, 15, 15);
+    stroke-width: 12;
+    z-index: -2;
+}
+
+section .skills .professional .list article .circle-container svg .sub-circle {
+    border: 2px solid rgb(153, 255, 0);
+    transition: all .2s ease-in-out;
+    border-radius: 10px;
+    cx: 60;
+    cy: 75; /** Pese a estar con display flex se le aumenta 15**/
+    r: 54;
+    fill: none;
+    stroke: rgb(153, 255, 0);
+    stroke-width: 13;
+    stroke-dasharray: 360;
+    stroke-dashoffset: calc(360 - (360 * (var(--percentage) / 100)));
+    animation-duration: 1s;
+    animation: dibujarCirculo 2s linear forwards;  
+}
+
+@keyframes dibujarCirculo {  
     0%{
-        opacity: 0;
-        transform: scale(0%)
+        stroke-dasharray: 0;
     }
-
-    50%{
-        transform: scale(130%);
-    }
-
-    100%{
-        opacity: 1;
-        transform: translateY(1%)
-    }
-}
-
-@media only screen and (max-width : 875px) {
-    section .skills .professional .list article .circle {
-        width: 8rem;
-        height: 8rem;
-    }
-}
-
-section .skills .professional .list article .circle .sub-circle {
-    text-align: center;
-    width: 80%;
-    height: 80%;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(20, 20, 20);
-    color: white;
-    font-weight: 900;
-    border:solid 1px rgb(153, 255, 0);
-}
-
-section .skills .professional .list article .title {
-    color: white;
-    text-align: center;
-    font-weight: 900;
-}
+} 

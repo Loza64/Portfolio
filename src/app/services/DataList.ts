@@ -42,7 +42,7 @@ export class DataList {
         }
         ,
         {
-            name: "Ledership", percentage: 85
+            name: "Ladership", percentage: 85
         },
         {
             name: "Solving problems", percentage: 70
