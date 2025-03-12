@@ -34,21 +34,21 @@ export class DataList {
             name: "Team work", percentage: 90
         },
         {
-            name: "Communication", percentage: 70
+            name: "Communication", percentage: 72
         }
         ,
         {
-            name: "Creativity", percentage: 70
+            name: "Creativity", percentage: 80
         }
         ,
         {
             name: "Ladership", percentage: 85
         },
         {
-            name: "Solving problems", percentage: 70
+            name: "Solving problems", percentage: 75
         },
         {
-            name: "Adaptability", percentage: 75
+            name: "Adaptability", percentage: 70
         }
     ]
 

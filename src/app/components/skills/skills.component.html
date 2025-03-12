@@ -28,11 +28,10 @@
             <div class="list">
                 <article *ngFor="let skill of getProfessionalList()" #articleProfessional>
                     <div class="circle-container">
-                        <svg>
-                            <circle class="circle" />
-                            <circle class="sub-circle" [ngStyle]="{'--percentage': skill.percentage}"/>
+                        <svg viewBox="0 0 100 100">
+                            <circle class="circle" [ngStyle]="{'--percentage': skill.percentage}" />
+                            <text x="30%" y="60%" >{{skill.percentage}}%</text> <!--ntd child 1-->
                         </svg>
-                        <span>{{skill.percentage}}%</span>
                     </div>
                     <span>{{skill.name}}</span>
                 </article>

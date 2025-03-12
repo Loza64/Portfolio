@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, IterableDiffers, Output, output, Query, QueryList, SimpleChanges, ViewChildren } from '@angular/core';
 import { DataList } from '../../services/DataList';
 import { IntersectionObserverService } from '../../services/IntersectionObserverService';
+import { style } from '@angular/animations';
 
 interface Technical {
   name: string,
@@ -56,21 +57,18 @@ export class SkillsComponent {
     });
 
     this.articlesTechnicals.forEach(
-      item => {
+      item  => {
         item.nativeElement.addEventListener('intersect', () => {
           item.nativeElement.style = "opacity: 1; transform: translateY(0);";
 
-          let bar = item.nativeElement.querySelector(".bar")
-          bar.style.width = `${bar.dataset.percentage}%`;
+          let bar = item.nativeElement.querySelector(".bar") as HTMLElement
+          bar.style.width = `${bar.dataset["percentage"]}%`;
         });
 
         item.nativeElement.addEventListener('notintersect', () => {
           item.nativeElement.style = "opacity: 0; transform: translateY(50px);";
 
-          let percentage = item.nativeElement.querySelector(".percentage");
-          percentage.value = "0%"
-
-          let bar = item.nativeElement.querySelector(".bar")
+          let bar = item.nativeElement.querySelector(".bar") as HTMLElement
           bar.style.width = "0%"
         });
       }
@@ -83,21 +81,19 @@ export class SkillsComponent {
 
     this.articleProfessional.forEach(item => {
       item.nativeElement.addEventListener('intersect', () => {
-        let circle = item.nativeElement.querySelector(".circle")
-        const percentage = circle.dataset.percentage;
-        circle.style.opacity = 1;
-        circle.style.backgroundColor = `conic-gradient(rgb(153, 255, 0) ${percentage}%, rgb(20, 20, 20) 0%);`
-        circle.style.transform = "scale(100%)"
-        circle.style.animationName = "circle-animated"
-        console.log(circle.style)
+        item.nativeElement.style.opacity = 1;
+        item.nativeElement.style.transform = "translateY(0px)"
+        let circle = item.nativeElement.querySelector(".circle") as HTMLElement
+        circle.style.strokeDashoffset = "calc(360 + (360 * (var(--percentage) / 100)))"
+        circle.style.animation = "dibujarCirculo 1s linear forwards"
       })
 
       item.nativeElement.addEventListener('notintersect', () => {
-        let circle = item.nativeElement.querySelector(".circle")
-        circle.style.opacity = 0;
-        circle.style.backgroundColor = "conic-gradient(rgb(153, 255, 0) 0%, rgb(20, 20, 20) 0%);"
-        circle.style.transform = "scale(0%)"
-        circle.style.animationName = "none"
+        item.nativeElement.style.opacity = 0;
+        item.nativeElement.style.transform = "translateY(20px)"
+        let circle = item.nativeElement.querySelector(".circle") as HTMLElement
+        circle.style.strokeDashoffset = "360"
+        circle.style.animation = "none"
       })
     })
 
