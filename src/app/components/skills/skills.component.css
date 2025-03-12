@@ -140,7 +140,7 @@ section .skills .technicals .list article .content .icon label {
     font-size: 1.2rem;
     font-weight: 900;
     text-align: center;
-    color: rgb(153, 255, 0);
+    color: white;
 }
 
 @media screen and (max-width: 600px) {
@@ -150,7 +150,7 @@ section .skills .technicals .list article .content .icon label {
 }
 
 section .skills .technicals .list article .content .percentage {
-    color: rgb(153, 255, 0);
+    color: white;
     font-size: 1rem;
     font-weight: 900;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
