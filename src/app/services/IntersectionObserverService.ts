@@ -25,7 +25,7 @@ export class IntersectionObserverService {
             {
                 root: null,
                 rootMargin: '1px',
-                threshold: 1
+                threshold: .8
             }
         )
     }
