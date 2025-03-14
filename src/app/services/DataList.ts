@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import e from "express";
+import { Professional, Service, Technical } from "./Models";
 
 
 @Injectable({
@@ -7,8 +7,8 @@ import e from "express";
 })
 
 export class DataList {
-    
-    private technicals = [
+
+    private technicals: Technical[] = [
         { name: 'React', type: 'frontend', percentage: 80, url: "https://res.cloudinary.com/ufostart-development/image/upload/v1741313918/PORTFOLIO/ap2eh1bjzosnqf6wdobd.png" },
         { name: 'Angular', type: 'frontend', percentage: 75, url: "https://res-console.cloudinary.com/ufostart-development/media_explorer_thumbnails/9f5f265725ba86e708952265c0b6826c/detailed" },
         { name: 'JavaScript', type: 'frontend', percentage: 90, url: "https://res-console.cloudinary.com/ufostart-development/media_explorer_thumbnails/797240a275acb446e0932e34bf47a698/card?v=1741313528" },
@@ -29,7 +29,7 @@ export class DataList {
         { name: 'Docker', type: 'others', percentage: 30, url: "https://res.cloudinary.com/ufostart-development/image/upload/v1741449747/PORTFOLIO/dbciwmdvbws1mxuk2ubh.png" },
     ];
 
-    private professionals = [
+    private professionals: Professional[] = [
         {
             name: "Team work", percentage: 90
         },
@@ -52,11 +52,68 @@ export class DataList {
         }
     ]
 
-    technicalsSkills(): any {
+    private services: Service[] = [
+        {
+            "icon": "fas fa-laptop-code",
+            "title": "Desarrollo web",
+            "text": "Creo aplicaciones web excepcionales y dinámicas. Mi solución es eficiente y optimizada, asegurando una mejor experiencia de usuario para tus clientes."
+        },
+        {
+            "icon": "fas fa-mobile-alt",
+            "title": "Desarrollo móvil",
+            "text": "Desarrollo aplicaciones móviles atractivas y seguras para Android y multiplataforma, optimizando constantemente la experiencia del usuario."
+        },
+        {
+            "icon": "fas fa-desktop",
+            "title": "Desarrollo de escritorio",
+            "text": "Creo aplicaciones de escritorio eficientes, aplicando patrones de diseño efectivos para lograr un alto rendimiento, seguridad y buena interacción con el usuario."
+        },
+        {
+            "icon": "fas fa-shopping-cart",
+            "title": "Desarrollo de E-commerce",
+            "text": "Creo soluciones e-commerce personalizadas que integran pagos seguros y mejoran la experiencia de compra en línea."
+        },
+        {
+            "icon": "fas fa-chart-line",
+            "title": "SEO y Marketing Digital",
+            "text": "Ofrezco servicios SEO para mejorar la visibilidad online de tu web y fortalecer tu estrategia de marketing digital."
+        },
+        {
+            "icon": "fas fa-lightbulb",
+            "title": "Consultoría de Tecnología",
+            "text": "Proporciono asesoría para transformar digitalmente tu negocio, evaluando y mejorando tus necesidades tecnológicas."
+        },
+        {
+            "icon": "fas fa-tools",
+            "title": "Soporte y Mantenimiento",
+            "text": "Ofrezco planes de mantenimiento a medida para asegurar el correcto funcionamiento a largo plazo."
+        },
+        {
+            "icon": "fas fa-code",
+            "title": "Desarrollo de APIs",
+            "text": "Creo APIs que permiten la integración de sistemas y desarrollan la funcionalidad de múltiples aplicaciones."
+        },
+        {
+            "icon": "fas fa-project-diagram",
+            "title": "Integración de Sistemas",
+            "text": "Ayudo a unir aplicaciones y plataformas para mejorar la eficiencia y operatividad de tu negocio en su conjunto."
+        },
+        {
+            "icon": "fas fa-cogs",
+            "title": "Software a Medida",
+            "text": "Creo soluciones personalizadas que se adaptan a los requerimientos específicos del cliente en todos los niveles."
+        }
+    ]
+
+    getServicesList():Service[]{
+        return this.services
+    }
+
+    technicalsSkills(): Technical[] {
         return this.technicals;
     }
 
-    professionalSkills() : any{
+    professionalSkills(): Professional[] {
         return this.professionals;
     }
 

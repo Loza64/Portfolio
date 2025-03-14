@@ -1,0 +1,48 @@
+.services {
+    padding:0 25px;
+}
+
+.services h2 {
+    text-align: center;
+    color: rgb(153, 255, 0);
+    font-weight: 900;
+    font-size: 2rem;
+}
+
+.services .list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 0;
+}
+
+.services .list article{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    max-width: 20rem;
+    box-shadow: 5px 5px 5px rgb(153, 255, 0);
+    border-radius: 10px;
+    padding: 20px 10px;
+    transition: all .3s ease-in-out;
+}
+
+@media only screen and (max-width:601px) {
+    .services .list article{
+        max-width: none;
+    }
+}
+
+.services .list article i{
+    color: rgb(153, 255, 0);
+    font-size: 50px;
+}
+
+.services .list article span{
+    font-weight: 900;
+    font-size: 20px;
+}

@@ -1,1 +1,10 @@
-<p>services works!</p>
+<section class="services">
+    <h2>Mis servicios</h2>
+    <div class="list">
+        <article *ngFor="let item of getServiceList()" #article>
+            <i [ngClass]="item.icon"></i>
+            <span>{{item.title}}</span>
+            <p>{{item.text}}</p>
+        </article>
+    </div>
+</section>

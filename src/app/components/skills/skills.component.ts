@@ -1,20 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, Input, IterableDiffers, Output, output, Query, QueryList, SimpleChanges, ViewChildren } from '@angular/core';
+import { Component, ElementRef, Input, QueryList, SimpleChanges, ViewChildren } from '@angular/core';
 import { DataList } from '../../services/DataList';
 import { IntersectionObserverService } from '../../services/IntersectionObserverService';
-import { style } from '@angular/animations';
-
-interface Technical {
-  name: string,
-  type: string,
-  percentage: number,
-  url: string
-}
-
-interface Professional {
-  name: String,
-  percentage: number
-}
+import { Professional, Technical } from '../../services/Models';
 
 @Component({
   selector: 'app-skills',
@@ -57,7 +45,7 @@ export class SkillsComponent {
     });
 
     this.articlesTechnicals.forEach(
-      item  => {
+      item => {
         item.nativeElement.addEventListener('intersect', () => {
           item.nativeElement.style = "opacity: 1; transform: translateY(0);";
 
@@ -122,7 +110,5 @@ export class SkillsComponent {
   getProfessionalList(): Professional[] {
     return this.professionalsList;
   }
-
-  //professionalSkills
 
 }
