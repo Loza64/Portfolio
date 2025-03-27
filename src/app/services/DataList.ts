@@ -79,11 +79,6 @@ export class DataList {
             "text": "Ofrezco servicios SEO para mejorar la visibilidad online de tu web y fortalecer tu estrategia de marketing digital."
         },
         {
-            "icon": "fas fa-lightbulb",
-            "title": "Consultoría de Tecnología",
-            "text": "Proporciono asesoría para transformar digitalmente tu negocio, evaluando y mejorando tus necesidades tecnológicas."
-        },
-        {
             "icon": "fas fa-tools",
             "title": "Soporte y Mantenimiento",
             "text": "Ofrezco planes de mantenimiento a medida para asegurar el correcto funcionamiento a largo plazo."
