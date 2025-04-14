@@ -15,3 +15,11 @@ export interface Service {
     title: String,
     text: String
 }
+
+
+export interface Project {
+    title: String,
+    description: String,
+    image: String,
+    url: String
+}
