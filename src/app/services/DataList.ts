@@ -134,7 +134,7 @@ export class DataList {
         ,
         {
             title: "Residencial",
-            description: "Aplicacion web hecha con php(mvc), html, css y javascript, ademas que se se le implemento seguridad en la gestion de sesiones y un sistema de roles para los usuarios: resident, admin, s_admin .",
+            description: "Aplicacion web hecha con php(mvc), mysql, html, css y javascript, ademas que se se le implemento seguridad en la gestion de sesiones y un sistema de roles para los usuarios: resident, admin, s_admin .",
             image: "https://res.cloudinary.com/ufostart-development/image/upload/v1744594170/PORTFOLIO/ztj8j40uxqpbgtzjq5ue.png",
             url: "ver_detalles_ecommerce"
         }
