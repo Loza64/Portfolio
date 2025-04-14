@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, SimpleChanges } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterLink, RouterModule } from '@angular/router';
 
@@ -13,6 +13,7 @@ import { Router, RouterLink, RouterModule } from '@angular/router';
 })
 
 export class NavbarComponent {
+
   constructor(private router: Router) { }
 
   activeRouteScreen(path: string): boolean {
@@ -21,8 +22,7 @@ export class NavbarComponent {
 
   scrollElement(element: string): void {
     const el = document.getElementById(element);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
+
 }

@@ -1,22 +1,26 @@
 <div class="navbar-container">
         <nav>
-                <a [routerLink]="['/']" [ngClass]="{ active: activeRouteScreen('/') }" (click)="scrollElement('home')">
+                <a [routerLink]="['/']" [ngClass]="{ active: activeRouteScreen('/') }" (click)="scrollElement('home')" id="/home">
                         <span>Home</span>
                         <mat-icon class="icono">home</mat-icon>
                 </a>
-                <a [routerLink]="['/services']" [ngClass]="{ active: activeRouteScreen('/services') }" (click)="scrollElement('services')">
+                <a [routerLink]="['/skills']" [ngClass]="{ active: activeRouteScreen('/skills') }" (click)="scrollElement('skills')" id="/skills">
+                        <span>Skills</span>
+                        <mat-icon class="icono">check</mat-icon>
+                </a>
+                <a [routerLink]="['/services']" [ngClass]="{ active: activeRouteScreen('/services') }" (click)="scrollElement('services')" id="/services">
                         <span>Servicios</span>
                         <mat-icon class="icono">work_outline</mat-icon>
                 </a>
-                <a [routerLink]="['/projects']" [ngClass]="{ active: activeRouteScreen('/projects') }" (click)="scrollElement('projects')">
+                <a [routerLink]="['/projects']" [ngClass]="{ active: activeRouteScreen('/projects') }" (click)="scrollElement('projects')" id ="/projects">
                         <span>Proyectos</span>
                         <mat-icon class="icono">code</mat-icon>
                 </a>
-                <a [routerLink]="['/about']" [ngClass]="{ active: activeRouteScreen('/about') }" (click)="scrollElement('about')">
+                <a [routerLink]="['/about']" [ngClass]="{ active: activeRouteScreen('/about') }" (click)="scrollElement('about')" id="/about">
                         <span>Información</span>
                         <mat-icon class="icono">account_circle</mat-icon>
                 </a>
-                <a [routerLink]="['/contact']" [ngClass]="{ active: activeRouteScreen('/contact') }" (click)="scrollElement('contact')">
+                <a [routerLink]="['/contact']" [ngClass]="{ active: activeRouteScreen('/contact') }" (click)="scrollElement('contact')" id="/contact">
                         <span>Contacto</span>
                         <mat-icon class="icono">mail_outline</mat-icon>
                 </a>
