@@ -8,13 +8,21 @@ import { Router, RouterLink, RouterModule } from '@angular/router';
   imports: [MatIconModule, RouterLink, RouterModule, CommonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.css',
+  standalone: true,
 })
 
 export class NavbarComponent {
   constructor(private router: Router) { }
 
-  activeRoute(path: string): boolean {
+  activeRouteScreen(path: string): boolean {
     return this.router.url === path;
+  }
+
+  scrollElement(element: string): void {
+    const el = document.getElementById(element);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }

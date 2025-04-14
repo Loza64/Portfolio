@@ -1,40 +1,48 @@
-import { Injectable } from "@angular/core";
+import { Injectable, NgZone } from "@angular/core";
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class IntersectionObserverService {
-    private observer: IntersectionObserver;
+    private observer: IntersectionObserver | null = null;
 
-    constructor() {
-        this.observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(
-                    entry => {
-                        if (entry.isIntersecting) {
+    constructor(private ngZone: NgZone) {
+
+        this.ngZone.runOutsideAngular(() => {
+            // Check if IntersectionObserver is supported
+            // and create an instance if it is
+            if (typeof IntersectionObserver !== 'undefined') {
+                this.observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach(entry => {
                             const target = entry.target as HTMLElement;
-                            target.dispatchEvent(new CustomEvent('intersect'));
-                        } else {
-                            const target = entry.target as HTMLElement;
-                            target.dispatchEvent(new CustomEvent('notintersect'));
-                        }
+                            if (entry.isIntersecting) {
+                                target.dispatchEvent(new CustomEvent('intersect'));
+                            } else {
+                                target.dispatchEvent(new CustomEvent('notintersect'));
+                            }
+                        });
+                    },
+                    {
+                        root: null,
+                        rootMargin: '1px',
+                        threshold: 0.8
                     }
                 );
-            },
-            {
-                root: null,
-                rootMargin: '1px',
-                threshold: .8
             }
-        )
+        });
     }
 
     observe(element: Element) {
-        this.observer.observe(element);
+        if (this.observer) {
+            this.observer.observe(element);
+        }
     }
 
     unobserve(element: Element) {
-        this.observer.unobserve(element);
+        if (this.observer) {
+            this.observer.unobserve(element);
+        }
     }
-}
+}  

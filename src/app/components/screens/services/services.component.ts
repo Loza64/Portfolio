@@ -8,7 +8,8 @@ import { IntersectionObserverService } from '../../../services/IntersectionObser
   selector: 'app-services',
   imports: [CommonModule],
   templateUrl: './services.component.html',
-  styleUrl: './services.component.css'
+  styleUrl: './services.component.css',
+  standalone: true,
 })
 export class ServicesComponent {
 

@@ -1,14 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, QueryList, SimpleChanges, ViewChildren } from '@angular/core';
-import { DataList } from '../../services/DataList';
-import { IntersectionObserverService } from '../../services/IntersectionObserverService';
-import { Professional, Technical } from '../../services/Models';
+import { Professional, Technical } from '../../../services/Models';
+import { IntersectionObserverService } from '../../../services/IntersectionObserverService';
+import { DataList } from '../../../services/DataList';
 
 @Component({
   selector: 'app-skills',
   imports: [CommonModule],
   templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.css']
+  styleUrls: ['./skills.component.css'],
+  standalone: true,
 })
 
 export class SkillsComponent {

@@ -1,22 +1,22 @@
 <div class="navbar-container">
         <nav>
-                <a [routerLink]="['/']" [ngClass]="{ active: activeRoute('/') }">
+                <a [routerLink]="['/']" [ngClass]="{ active: activeRouteScreen('/') }" (click)="scrollElement('home')">
                         <span>Home</span>
                         <mat-icon class="icono">home</mat-icon>
                 </a>
-                <a [routerLink]="['/services']" [ngClass]="{ active: activeRoute('/services') }">
+                <a [routerLink]="['/services']" [ngClass]="{ active: activeRouteScreen('/services') }" (click)="scrollElement('services')">
                         <span>Servicios</span>
                         <mat-icon class="icono">work_outline</mat-icon>
                 </a>
-                <a [routerLink]="['/projects']" [ngClass]="{ active: activeRoute('/projects') }">
+                <a [routerLink]="['/projects']" [ngClass]="{ active: activeRouteScreen('/projects') }" (click)="scrollElement('projects')">
                         <span>Proyectos</span>
                         <mat-icon class="icono">code</mat-icon>
                 </a>
-                <a [routerLink]="['/about']" [ngClass]="{ active: activeRoute('/about') }">
+                <a [routerLink]="['/about']" [ngClass]="{ active: activeRouteScreen('/about') }" (click)="scrollElement('about')">
                         <span>Información</span>
                         <mat-icon class="icono">account_circle</mat-icon>
                 </a>
-                <a [routerLink]="['/contact']" [ngClass]="{ active: activeRoute('/contact') }">
+                <a [routerLink]="['/contact']" [ngClass]="{ active: activeRouteScreen('/contact') }" (click)="scrollElement('contact')">
                         <span>Contacto</span>
                         <mat-icon class="icono">mail_outline</mat-icon>
                 </a>
