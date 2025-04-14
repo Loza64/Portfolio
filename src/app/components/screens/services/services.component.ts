@@ -37,6 +37,7 @@ export class ServicesComponent {
 
     this.articles.forEach(element => {
       element.nativeElement.addEventListener("intersect", () => {
+        document.getElementById("/services")?.classList.add("active");
         const article = element.nativeElement as HTMLAreaElement
         article.style.opacity = "1";
         article.style.transform = "translateX(0)"
@@ -45,16 +46,12 @@ export class ServicesComponent {
         const article = element.nativeElement as HTMLAreaElement
         article.style.opacity = "0";
         article.style.transform = "translateX(-20px)"
+        document.getElementById("/services")?.classList.remove("active");
       })
     })
 
     this.services.nativeElement.addEventListener("intersect", () => {
-      document.getElementById("/services")?.classList.add("active");
       this.router.navigate(["/services"])
-    })
-
-    this.services.nativeElement.addEventListener("notintersect", () => {
-      document.getElementById("/services")?.classList.remove("active");
     })
   }
 

@@ -52,6 +52,7 @@ export class SkillsComponent {
 
           let bar = item.nativeElement.querySelector(".bar") as HTMLElement
           bar.style.width = `${bar.dataset["percentage"]}%`;
+          document.getElementById('/skills')?.classList.add('active');
         });
 
         item.nativeElement.addEventListener('notintersect', () => {
@@ -59,6 +60,7 @@ export class SkillsComponent {
 
           let bar = item.nativeElement.querySelector(".bar") as HTMLElement
           bar.style.width = "0%"
+          document.getElementById('/skills')?.classList.remove('active');
         });
       }
     )
@@ -73,6 +75,7 @@ export class SkillsComponent {
         let circle = item.nativeElement.querySelector(".circle") as HTMLElement
         circle.style.strokeDashoffset = "calc(360 + (360 * (var(--percentage) / 100)))"
         circle.style.animation = "dibujarCirculo 1s linear forwards"
+        document.getElementById('/skills')?.classList.add('active');
       })
 
       item.nativeElement.addEventListener('notintersect', () => {
@@ -81,6 +84,7 @@ export class SkillsComponent {
         let circle = item.nativeElement.querySelector(".circle") as HTMLElement
         circle.style.strokeDashoffset = "360"
         circle.style.animation = "none"
+        document.getElementById('/skills')?.classList.remove('active');
       })
     })
 
@@ -91,11 +95,6 @@ export class SkillsComponent {
 
     this.skills.nativeElement.addEventListener('intersect', () => {
       this.router.navigateByUrl('/skills');
-      document.getElementById('/skills')?.classList.add('active');
-    })
-
-    this.skills.nativeElement.addEventListener('notintersect', () => {
-      document.getElementById('/skills')?.classList.remove('active');
     })
     
     this.initObserberSkills()

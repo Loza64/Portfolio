@@ -34,22 +34,20 @@ export class ProjectsComponent {
         const article = element.nativeElement as HTMLAreaElement
         article.style.opacity = "1";
         article.style.transform = "translateY(0)"
+        document.getElementById("/projects")?.classList.add("active");
       })
       element.nativeElement.addEventListener("notintersect", () => {
         const article = element.nativeElement as HTMLAreaElement
         article.style.opacity = "0";
         article.style.transform = "translateY(-30px)"
+        document.getElementById("/projects")?.classList.remove("active");
       })
     })
 
     this.section.nativeElement.addEventListener("intersect", () => {
       this.route.navigateByUrl('/projects');
-      document.getElementById("/projects")?.classList.add("active");
     })
 
-    this.section.nativeElement.addEventListener("notintersect", () => {
-      document.getElementById("/projects")?.classList.remove("active");
-    })
   }
   ngOnDestroy() {
     this.intersect.unobserve(this.section.nativeElement);
