@@ -23,3 +23,8 @@ export interface Project {
     image: String,
     url: String
 }
+
+export interface About{
+    date: String,
+    description: String,
+}

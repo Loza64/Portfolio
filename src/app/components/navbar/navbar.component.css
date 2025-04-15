@@ -116,18 +116,18 @@
 
 .navbar-container a:hover mat-icon {
     color: rgb(153, 255, 0);
-    transform: scale(130%);
+    transform: scale(120%);
 }
 
 .navbar-container .active:hover mat-icon {
     color: black;
-    transform: scale(130%);
+    transform: scale(120%);
 }
 
 .navbar-container .active mat-icon {
     background-color: rgb(153, 255, 0);
     color: black;
-    transform: scale(130%);
+    transform: scale(120%);
 }
 
 
@@ -150,6 +150,9 @@
 }
 
 @media only screen and (max-width: 400px) {
+    .navbar-container a {
+        margin: 1px 5px;
+    }
     .navbar-container a mat-icon {
         font-size: 25px;
     }

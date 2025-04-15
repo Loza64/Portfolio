@@ -1,3 +1,14 @@
 <section id="about">
-
+    <h2>Experiencia y educación</h2>
+    <div class="about">
+        <article #article *ngFor="let item of about">
+            <mat-icon class="icon">star</mat-icon>
+            <div class="content">
+                <h3>{{item.date}}</h3>
+                <p>
+                    {{item.description}}
+                </p>
+            </div>
+        </article>
+    </div>
 </section>

@@ -2,7 +2,7 @@
     <h2>Mis proyectos</h2>  
     <div class="list">  
         <article class="card" *ngFor="let project of projects" #article>  
-            <div class="card-inner"> <!-- Añadido el contenedor interior -->  
+            <div class="card-inner"> 
                 <img [src]="project.image" alt="Imagen del proyecto {{ project.title }}" />  
                 <div class="body">  
                     <h3>{{ project.title }}</h3>  
