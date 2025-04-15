@@ -26,24 +26,26 @@ export class AboutComponent {
   ngAfterViewInit() {
     this.articles.forEach((article) => {
       this.observer.observe(article.nativeElement);
+
       article.nativeElement.addEventListener("intersect", () => {
         const content = article.nativeElement.querySelector(".content") as HTMLElement;
         const icon = article.nativeElement.querySelector("mat-icon") as HTMLElement;
         content.style.opacity = "1";
         content.style.transform = "translateY(0)";
-        icon.style.transform = "translateY(0)";
+        icon.style.transform = "scale(100%)";
         icon.style.opacity = "1";
         icon.style.transition = "transform 0.5s ease-in-out, opacity 0.5s ease-in-out";
         content.style.transition = "transform 0.5s ease-in-out, opacity 0.5s ease-in-out";
 
         document.getElementById("/about")?.classList.add("active");
       });
+
       article.nativeElement.addEventListener("notintersect", () => {
         const content = article.nativeElement.querySelector(".content") as HTMLElement;
         const icon = article.nativeElement.querySelector("mat-icon") as HTMLElement;
         content.style.opacity = "0";
         content.style.transform = "translateY(50px)";
-        icon.style.transform = "translateY(50px)";
+        icon.style.transform = "scale(200%)";
         icon.style.opacity = "0";
         icon.style.transition = "transform 0.5s ease-in-out, opacity 0.5s ease-in-out";
         content.style.transition = "transform 0.5s ease-in-out, opacity 0.5s ease-in-out";
