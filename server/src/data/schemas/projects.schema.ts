@@ -1,18 +1,9 @@
 import { Document } from 'mongoose';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-
-@Schema()
-export class Image {
-  @Prop({ required: true })
-  url: string;
-
-  @Prop({ required: true })
-  public_id: string;
-}
-
+import { Image } from './image.schema';
 export const ImageSchema = SchemaFactory.createForClass(Image);
 
-@Schema()
+@Schema({ versionKey: false })
 export class Projects extends Document {
   @Prop({ required: true, unique: true, maxlength: 100 })
   title: string;

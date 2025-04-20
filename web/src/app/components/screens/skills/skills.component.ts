@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, QueryList, SimpleChanges, ViewChild, ViewChildren } from '@angular/core';
-import { Professional, Technical } from '../../../services/Models';
-import { IntersectionObserverService } from '../../../services/IntersectionObserverService';
-import { DataList } from '../../../services/DataList';
+import { Professional, ResponseRest, Technical } from '../../../services/ModelsInterface';
+import { ObserverService } from '../../../services/ObserverService';
 import { Router } from '@angular/router';
+import { ApiService } from '../../../services/api/api.service';
 
 @Component({
   selector: 'app-skills',
@@ -15,8 +15,9 @@ import { Router } from '@angular/router';
 
 export class SkillsComponent {
 
-  private technicalsList: Technical[] = [];
-  private professionalsList: Professional[] = [];
+  private technicalsResponse: ResponseRest<Technical[]> = { result: [], message: "", state: false };
+  private professionalResponse: ResponseRest<Professional[]> = { result: [], message: "", state: false };
+  private technicalList: Technical[] = [];
 
   filter: string = "backend";
   @Input() maxTechnicalsToShow: number | null = null;
@@ -25,24 +26,30 @@ export class SkillsComponent {
   @ViewChildren('articleTechnical') articlesTechnicals!: QueryList<ElementRef>;
   @ViewChildren('articleProfessional') articleProfessional!: QueryList<ElementRef>;
 
-  constructor(private list: DataList, private observerService: IntersectionObserverService, private router: Router) { }
+  constructor(
+    private api: ApiService,
+    private observerService: ObserverService,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.technicalsList = this.list.technicalsSkills();
-    this.professionalsList = this.list.professionalSkills();
+    this.api.getTechnicalSkills().subscribe((response: ResponseRest<Technical[]>) => {
+      this.technicalsResponse = response;
+      this.technicalList = response.result || [];
+    });
+    this.api.getProfessionalSkills().subscribe((response: ResponseRest<Professional[]>) => {
+      this.professionalResponse = response;
+    });
 
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['maxTechnicalsToShow'] || changes['filter']) {
+    if (changes['filter']) {
       this.getTechnicalList();
       this.initObserberSkills();
     }
   }
 
   initObserberSkills() {
-
-    //technicalSkills
     this.articlesTechnicals.forEach(article => { this.observerService.observe(article.nativeElement) });
 
     this.articlesTechnicals.forEach(
@@ -96,7 +103,7 @@ export class SkillsComponent {
     this.skills.nativeElement.addEventListener('intersect', () => {
       this.router.navigateByUrl('/skills');
     })
-    
+
     this.initObserberSkills()
   }
 
@@ -111,11 +118,11 @@ export class SkillsComponent {
   }
 
   getTechnicalList(): Technical[] {
-    return this.technicalsList.filter(skill => skill.type === this.filter).slice(0, this.maxTechnicalsToShow || this.technicalsList.length);
+    return this.technicalList = (this.technicalsResponse.result || []).filter(item => item.type === this.filter);
   }
 
-  getProfessionalList(): Professional[] {
-    return this.professionalsList;
+  getProfessionalList(): ResponseRest<Professional[]> {
+    return this.professionalResponse;
   }
 
 }

@@ -4,7 +4,7 @@ import { Injectable, NgZone } from "@angular/core";
     providedIn: 'root'
 })
 
-export class IntersectionObserverService {
+export class ObserverService {
     private observer: IntersectionObserver | null = null;
 
     constructor(private ngZone: NgZone) {

@@ -10,4 +10,4 @@ import { HomeComponent } from './components/screens/home/home.component';
   styleUrl: './app.component.css',
   standalone: true
 })
-export class AppComponent {}
+export class AppComponent { }

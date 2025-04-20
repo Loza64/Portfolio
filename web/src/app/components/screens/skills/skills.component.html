@@ -13,7 +13,7 @@
                 <article *ngFor="let skill of getTechnicalList()" #articleTechnical>
                     <div class=" content">
                         <div class="icon">
-                            <img [src]="skill.url" alt="img">
+                            <img [src]="skill.image.url" alt="img">
                             <label>{{skill.name}}</label>
                         </div>
                         <label class="percentage">{{skill.percentage}}%</label>
@@ -26,7 +26,7 @@
         <div class="professional">
             <h3>Profesionales</h3>
             <div class="list">
-                <article *ngFor="let skill of getProfessionalList()" #articleProfessional>
+                <article *ngFor="let skill of getProfessionalList().result" #articleProfessional>
                     <div class="circle-container">
                         <svg viewBox="0 0 100 100">
                             <circle class="circle" [ngStyle]="{'--percentage': skill.percentage}" />

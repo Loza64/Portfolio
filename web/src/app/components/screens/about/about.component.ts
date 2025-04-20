@@ -1,9 +1,9 @@
 import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { About } from '../../../services/Models';
-import { DataList } from '../../../services/DataList';
+import { About } from '../../../services/ModelsInterface';
+import { SourceList } from '../../../services/SourceList';
 import { CommonModule } from '@angular/common';
-import { IntersectionObserverService } from '../../../services/IntersectionObserverService';
+import { ObserverService } from '../../../services/ObserverService';
 
 @Component({
   selector: 'app-about',
@@ -15,7 +15,7 @@ import { IntersectionObserverService } from '../../../services/IntersectionObser
 export class AboutComponent {
 
   about: About[] = [];
-  constructor(private dataList: DataList, private observer: IntersectionObserverService) { }
+  constructor(private dataList: SourceList, private observer: ObserverService) { }
 
   @ViewChildren("article") articles !: QueryList<ElementRef>;
 

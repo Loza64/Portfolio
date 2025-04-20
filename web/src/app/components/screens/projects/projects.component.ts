@@ -1,9 +1,10 @@
 import { Component, ViewChildren, QueryList, ElementRef, ViewChild } from '@angular/core';
-import { DataList } from './../../../services/DataList';
-import { IntersectionObserverService } from '../../../services/IntersectionObserverService';
-import { Project } from '../../../services/Models';
+import { SourceList } from '../../../services/SourceList';
+import { ObserverService } from '../../../services/ObserverService';
+import { Project } from '../../../services/ModelsInterface';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { ApiService } from '../../../services/api/api.service';
 
 @Component({
   selector: 'app-projects',
@@ -19,10 +20,12 @@ export class ProjectsComponent {
   @ViewChildren("article") articles!: QueryList<ElementRef>;
   @ViewChild("section") section!: ElementRef;
 
-  constructor(private dataList: DataList, private intersect: IntersectionObserverService, private route: Router) { }
+  constructor(private api: ApiService, private intersect: ObserverService, private route: Router) { }
 
   ngOnInit() {
-    this.projects = this.dataList.getProjects();
+    this.api.getProjects().subscribe((data) => {
+      this.projects = data.result || [];
+    });
   }
   ngAfterViewInit() {
 

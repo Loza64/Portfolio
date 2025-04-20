@@ -1,8 +1,8 @@
 import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { DataList } from '../../../services/DataList';
+import { SourceList } from '../../../services/SourceList';
 import { CommonModule } from '@angular/common';
-import { Service } from '../../../services/Models';
-import { IntersectionObserverService } from '../../../services/IntersectionObserverService';
+import { Service } from '../../../services/ModelsInterface';
+import { ObserverService } from '../../../services/ObserverService';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,12 +15,12 @@ import { Router } from '@angular/router';
 export class ServicesComponent {
 
   private listService: Service[] = [];
-  private intersection?: IntersectionObserverService = undefined
+  private intersection?: ObserverService = undefined
 
   @ViewChildren("article") articles!: QueryList<ElementRef>;
   @ViewChild("services") services!: ElementRef
 
-  constructor(private list: DataList, private intersectionService: IntersectionObserverService, private router: Router) { }
+  constructor(private list: SourceList, private intersectionService: ObserverService, private router: Router) { }
 
   ngOnInit(): void {
     this.listService = this.list.getServicesList();
