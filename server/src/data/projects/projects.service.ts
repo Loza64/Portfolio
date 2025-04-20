@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Projects } from '../schemas/projects.schema';
 import { Model } from 'mongoose';
@@ -14,13 +14,12 @@ export class ProjectsService {
     ) { }
 
     async createProject(project: ProjectDto, image: Express.Multer.File): Promise<Projects> {
-
         try {
             const img = await this.cloudinary.uploadImage(image);
-            const { description, title, url } = project
+            const { description, title, url } = project;
 
             if (img instanceof Error) {
-                throw new Error('Error uploading image');
+                throw new InternalServerErrorException('Error uploading image to Cloudinary');
             }
 
             const newProject = new this.projects({
@@ -31,17 +30,22 @@ export class ProjectsService {
             });
 
             return await newProject.save();
-        } catch {
-            throw new Error('Error creating project dsvdsddd');
+        } catch (error) {
+            if (error instanceof Error) {
+                throw new InternalServerErrorException('Error creating project: ' + error.message);
+            }
+            throw new InternalServerErrorException('Error creating project: An unknown error occurred');
         }
     }
 
-    async getAllProjects() {
+    async getAllProjects(): Promise<Projects[]> {
         try {
             return await this.projects.find();
-        } catch {
-            throw new Error('Error getting projects');
-
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                throw new InternalServerErrorException('Error retrieving projects: ' + error.message);
+            }
+            throw new InternalServerErrorException('Error retrieving projects: An unknown error occurred');
         }
     }
-}
+}  

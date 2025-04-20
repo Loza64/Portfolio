@@ -56,31 +56,8 @@ export class SourceList {
         }
     ]
 
-    private education: About[] = [  
-        {  
-            date: '2019 - 2021',  
-            description: 'Colegio Salarrue: Completé el Bachillerato Técnico Vocacional en Desarrollo de Software, adquiriendo conocimientos en programación, bases de datos y metodologías ágiles que fundamentaron mi carrera en ingeniería informática.'  
-        },  
-        {  
-            date: 'En curso',  
-            description: 'Universidad Centroamericana José Simeón Cañas: Estoy cursando la carrera de Ingeniería Informática, enfocándome en desarrollo de software y administración de sistemas, además de participar en proyectos prácticos.'  
-        },  
-        {  
-            date: '28/04/2023',  
-            description: 'Especialización en Front-End: Completé una especialización en Front-End, mejorando mis habilidades intermedias en JavaScript y React Native para desarrollar aplicaciones web y móviles con interfaces efectivas.'  
-        },  
-        {  
-            date: '26/08/2023',  
-            description: 'Curso de Introducción a la Usabilidad en Experiencia de Usuario (UX): Aprendí principios de diseño centrado en el usuario y técnicas de investigación y prototipado para mejorar la interacción del usuario con el producto.'  
-        } 
-    ]
-
     getServicesList(): Service[] {
         return this.services
-    }
-
-    getEducationList(): About[] {
-        return this.education;
     }
 
 }

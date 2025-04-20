@@ -5,11 +5,6 @@ export interface Service {
     text: String
 }
 
-export interface About {
-    date: String,
-    description: String,
-}
-
 //Interface to rest api
 export interface ResponseRest<T> {
     state: boolean;
@@ -41,6 +36,14 @@ export interface Professional {
     name: String,
     percentage: number
 }
+
+
+export interface About {
+    date: String,
+    title: String,
+    description: String,
+}
+
 
 export interface Message {
     name: String,

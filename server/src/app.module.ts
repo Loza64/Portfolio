@@ -10,6 +10,7 @@ import { MailerModule } from '@nestjs-modules/mailer';;
 import { TechnicalModule } from './data/skills/technical/technical.module';
 import { ProfessionalModule } from './data/skills/professional/professional.module';
 import { configMailer } from './config.app';
+import { AboutModule } from './data/about/about.module';
 
 
 @Module({
@@ -21,6 +22,7 @@ import { configMailer } from './config.app';
     ProjectsModule,
     TechnicalModule,
     ProfessionalModule,
+    AboutModule,
   ],
   controllers: [AppController],
   providers: [AppService],

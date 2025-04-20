@@ -1,9 +1,10 @@
-import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { About } from '../../../services/ModelsInterface';
-import { SourceList } from '../../../services/SourceList';
+import { About, ResponseRest } from '../../../services/ModelsInterface';
+import { ApiService } from '../../../services/api/api.service';
 import { CommonModule } from '@angular/common';
 import { ObserverService } from '../../../services/ObserverService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -14,13 +15,20 @@ import { ObserverService } from '../../../services/ObserverService';
 })
 export class AboutComponent {
 
-  about: About[] = [];
-  constructor(private dataList: SourceList, private observer: ObserverService) { }
+  about: ResponseRest<About[]> = { state: false, message: "", result: [] };
+  constructor(
+    private api: ApiService,
+    private observer: ObserverService,
+    private router: Router
+  ) { }
 
   @ViewChildren("article") articles !: QueryList<ElementRef>;
+  @ViewChild("section") section !: ElementRef
 
   ngOnInit() {
-    this.about = this.dataList.getEducationList();
+    this.api.getAboutInfo().subscribe((data) => {
+      this.about = data
+    })
   }
 
   ngAfterViewInit() {
@@ -36,8 +44,6 @@ export class AboutComponent {
         icon.style.opacity = "1";
         icon.style.transition = "transform 0.5s ease-in-out, opacity 0.5s ease-in-out";
         content.style.transition = "transform 0.5s ease-in-out, opacity 0.5s ease-in-out";
-
-        document.getElementById("/about")?.classList.add("active");
       });
 
       article.nativeElement.addEventListener("notintersect", () => {
@@ -49,10 +55,22 @@ export class AboutComponent {
         icon.style.opacity = "0";
         icon.style.transition = "transform 0.5s ease-in-out, opacity 0.5s ease-in-out";
         content.style.transition = "transform 0.5s ease-in-out, opacity 0.5s ease-in-out";
-
-        document.getElementById("/about")?.classList.remove("active");
       });
     });
+
+    this.observer.observe(this.section.nativeElement)
+
+    const sectionObserver = this.section.nativeElement as HTMLElement
+
+    sectionObserver.addEventListener("intersect", () => {
+      this.router.navigateByUrl("/about")
+      document.getElementById("/about")?.classList.add("active");
+    })
+
+    sectionObserver.addEventListener("notintersect", () => {
+      document.getElementById("/about")?.classList.remove("active");
+    })
+
   }
 
 }

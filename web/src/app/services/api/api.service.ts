@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Message, Professional, Project, ResponseRest, Technical } from '../ModelsInterface';
+import { About, Message, Professional, Project, ResponseRest, Technical } from '../ModelsInterface';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -31,5 +31,9 @@ export class ApiService {
 
   getTechnicalSkills(): Observable<ResponseRest<Technical[]>> {
     return this.getRequest("skills/technical/get");
+  }
+
+  getAboutInfo(): Observable<ResponseRest<About[]>> {
+    return this.getRequest("about/get/list")
   }
 }

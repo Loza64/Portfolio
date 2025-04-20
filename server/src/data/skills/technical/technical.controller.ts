@@ -12,8 +12,12 @@ export class TechnicalController {
 
     constructor(private service: TechnicalService) { }
 
-    private responseMessage(res: Response, status: number, message: string, result?: any) {
-        return res.status(status).json({ state: status >= 200 && status < 300, message, ...(result && { result }) });
+    private responseMessage(res: Response, status: number, message: string, result?: unknown) {
+        return res.status(status).json({
+            state: status >= 200 && status < 300,
+            message,
+            ...(result ? { result } : undefined)
+        });
     }
 
     @Post("upload")
@@ -31,9 +35,7 @@ export class TechnicalController {
     async get(@Res() res: Response) {
         try {
             const skills = await this.service.getAllSkills();
-            if (skills.length === 0) {
-                return this.responseMessage(res, 404, "No skills found", null);
-            }
+            if (skills.length === 0) return this.responseMessage(res, 404, "No skills found", null)
             return this.responseMessage(res, 200, "Skills found", skills);
         } catch (error) {
             return this.responseMessage(res, 500, "Error getting skills", error);

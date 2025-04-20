@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable prettier/prettier */
 
 import { Body, Controller, HttpStatus, Post, Res } from '@nestjs/common';
@@ -11,11 +10,11 @@ import { Response } from 'express';
 export class MessagesController {
     constructor(private service: MessagesService, private mail: MailService) { }
 
-    private responseMessage(res: Response, status: number, message: string, result?: any) {
+    private responseMessage(res: Response, status: number, message: string, result?: unknown) {
         return res.status(status).json({
             state: status >= 200 && status < 300,
             message,
-            ...(result && { result })
+            ...(result ? { result } : undefined)
         });
     }
 
@@ -24,7 +23,7 @@ export class MessagesController {
         try {
             const send = await this.service.createMessage(data) as MessagesDto;
             await this.mail.sendContactMessage(data);
-            return this.responseMessage(res, HttpStatus.CREATED, 'Message sent successfully', send);
+            return this.responseMessage(res, HttpStatus.CREATED, 'Message send successfully', send);
         } catch (error) {
             return this.responseMessage(res, HttpStatus.INTERNAL_SERVER_ERROR, 'Error sending message', error);
         }

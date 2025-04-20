@@ -13,8 +13,12 @@ export class ProjectsController {
         private readonly service: ProjectsService,
     ) { }
 
-    private responseMessage(res: Response, status: number, message: string, result?: any) {
-        return res.status(status).json({ state: status >= 200 && status < 300, message, ...(result && { result }) });
+    private responseMessage(res: Response, status: number, message: string, result?: unknown) {
+        return res.status(status).json({
+            state: status >= 200 && status < 300,
+            message,
+            ...(result ? { result } : undefined)
+        });
     }
 
     @Post('/save')
