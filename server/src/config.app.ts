@@ -15,3 +15,9 @@ export const configMailer = {
         }
     }
 }
+
+export const configPipe = {
+    transform: true,
+    whitelist: true,
+    forbidNonWhitelisted: true
+}
