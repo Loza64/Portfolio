@@ -5,7 +5,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body{
+body {
     background-color: rgb(15, 15, 15);
 }
 
@@ -20,4 +20,30 @@ body{
 ::-webkit-scrollbar-thumb {
     background: rgb(153, 255, 0);
     border-radius: 10px;
+}
+
+.snackbar-success {
+    background-color: transparent;
+    background-color: rgb(15, 15, 15);
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 900;
+    text-align: center;
+    box-shadow: 0 0 5px 5px rgb(153, 255, 0);
+    transition: all 0.3s ease-in-out;
+}
+
+.snackbar-error {
+    background-color: transparent;
+    background-color: rgb(15, 15, 15);
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 900;
+    text-align: center;
+    box-shadow: 0 0 5px 5px red;
+    transition: all 0.3s ease-in-out;
 }

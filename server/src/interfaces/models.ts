@@ -5,7 +5,8 @@ export interface Image {
 
 export interface MailMessage {
   message: string;
-  name: string;
+  firstname: string;
+  lastname: string;
   email: string;
   phone: string;
 }

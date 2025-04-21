@@ -7,15 +7,16 @@ import { MailMessage } from 'src/interfaces/models';
 export class MailService {
   constructor(private readonly mailerService: MailerService) { }
 
-  async sendContactMessage({ message, name, email, phone }: MailMessage) {
+  async sendContactMessage({ message, firstname, lastname, email, phone }: MailMessage) {
     await this.mailerService.sendMail({
       to: 'robertoloxa88@gmail.com',
       subject: 'Nuevo mensaje de contacto desde el portfolio web',
-      html: this.generateEmailTemplate({ message, name, email, phone }),
+      html: this.generateEmailTemplate({ message, firstname, lastname, email, phone }),
       context: {
         recipientName: 'Roberto',
         message: message,
-        name: name,
+        firstname: firstname,
+        lastname: lastname,
         email: email,
         phone: phone,
         replyTo: email || 'robertoloxa88@gmail.com',
@@ -25,7 +26,7 @@ export class MailService {
     });
   }
 
-  private generateEmailTemplate({ message, name, email, phone }: MailMessage): string {
+  private generateEmailTemplate({ message, firstname, lastname, email, phone }: MailMessage): string {
     return `
 <!DOCTYPE html>
 <html>
@@ -120,7 +121,8 @@ export class MailService {
     
     <p>Detalles del contacto:</p>
     <ul>
-      ${name ? `<li><strong>Nombre:</strong> ${name}</li>` : ''}
+      ${firstname ? `<li><strong>Nombre:</strong> ${firstname}</li>` : ''}
+      ${lastname ? `<li><strong>Apellido:</strong> ${lastname}</li>` : ''}
       ${email ? `<li><strong>Email:</strong> ${email}</li>` : ''}
       ${phone ? `<li><strong>Teléfono:</strong> ${phone}</li>` : ''}
     </ul>

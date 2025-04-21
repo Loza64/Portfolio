@@ -3,7 +3,7 @@ import { IsEmail, IsNotEmpty, IsPhoneNumber, IsString } from 'class-validator';
 export class MessagesDto {
   @IsNotEmpty()
   @IsString()
-  name: string;
+  firstname: string;
 
   @IsNotEmpty()
   @IsString()

@@ -4,7 +4,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 @Schema({ versionKey: false })
 export class Messages extends Document {
   @Prop({ required: true, maxlength: 100 })
-  name: string;
+  firstname: string;
 
   @Prop({ required: true, maxlength: 100 })
   lastname: string;

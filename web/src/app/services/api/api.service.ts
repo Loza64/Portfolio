@@ -10,10 +10,10 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getRequest(url: string): Observable<ResponseRest<any>> {
+  private getRequest(url: string): Observable<ResponseRest<any>> {
     return this.http.get<ResponseRest<any>>(`http://localhost:3000/${url}`);
   }
-  postRequest(url: string, body: any): Observable<ResponseRest<any>> {
+  private postRequest(url: string, body: any): Observable<ResponseRest<any>> {
     return this.http.post<ResponseRest<any>>(`http://localhost:3000/${url}`, body);
   }
 
