@@ -1,0 +1,11 @@
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem 0;
+}
+
+section .form-container{
+    width: 100%;
+    max-width: 550px;
+}

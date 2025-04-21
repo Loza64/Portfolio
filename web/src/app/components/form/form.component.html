@@ -1,1 +1,21 @@
-<p>form works!</p>
+<form #form [formGroup]="fg" (ngSubmit)="onSubmit()" class="form">
+    <div>
+        <input autocomplete="off" type="text" formControlName="firts_name" placeholder="nombre" id="firts-name"
+            [class.error]="!fg.get('firts_name')?.valid && fg.get('firts_name')?.touched">
+        >
+        <input autocomplete="off" type="text" formControlName="last_name" placeholder="apellido" id="last-name"
+            [class.error]="!fg.get('last_name')?.valid && fg.get('last_name')?.touched">
+        >
+    </div>
+    <div>
+        <input autocomplete="off" type="email" formControlName="email" placeholder="correo" id="email"
+            [class.error]="!fg.get('email')?.valid && fg.get('email')?.touched">
+        >
+        <input autocomplete="off" type="text" formControlName="phone" placeholder="teléfono" id="phone"
+            [class.error]="!fg.get('phone')?.valid && fg.get('phone')?.touched">
+        >
+    </div>
+    <textarea formControlName="message" id="message" placeholder="mensaje" rows="10" [class.error]="!fg.get('message')?.valid && fg.get('message')?.touched"></textarea>
+
+    <input type="submit" value="Enviar mensaje" id="send">
+</form>
