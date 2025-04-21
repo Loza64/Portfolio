@@ -86,6 +86,7 @@ export class SkillsComponent {
         item.nativeElement.style.transform = "translateY(20px)"
         let circle = item.nativeElement.querySelector(".circle") as HTMLElement
         circle.style.strokeDashoffset = "360"
+        circle.style.animation = "auto"
       })
     })
 
