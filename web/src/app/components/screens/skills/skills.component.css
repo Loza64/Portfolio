@@ -30,8 +30,9 @@ section .skills {
 section .skills .technicals {
     width: 100%;
 }
-@media screen and (max-width: 600px){
-    section .skills{
+
+@media screen and (max-width: 600px) {
+    section .skills {
         padding: 0 15px;
     }
 }
@@ -67,7 +68,7 @@ section .skills .technicals .options button:hover {
         font-size: .8rem;
         padding: .5rem;
     }
-    
+
 }
 
 section .skills .technicals h3,
@@ -231,13 +232,13 @@ section .skills .professional .list article {
     animation-iteration-count: 1;
 }
 
-@keyframes animate-article-circle{
-    0%{
+@keyframes animate-article-circle {
+    0% {
         opacity: 0;
         transform: translateY(30%);
     }
 
-    100%{
+    100% {
         opacity: 1;
         transform: translateY(0%);
     }
@@ -251,8 +252,9 @@ section .skills .professional .list article span {
     flex-direction: column;
     margin-top: 10px;
 }
-@media only screen and (max-width:400px){
-    section .skills .professional .list article span{
+
+@media only screen and (max-width:400px) {
+    section .skills .professional .list article span {
         font-size: 1rem;
     }
 }
@@ -267,12 +269,12 @@ section .skills .professional .list article .circle-container {
 
 @media screen and (max-width: 438px) {
     section .skills .professional .list article .circle-container {
-       margin: 20px;
+        margin: 20px;
     }
 }
 
-@media only screen and (max-width:400px){
-    section .skills .professional .list article .circle-container{
+@media only screen and (max-width:400px) {
+    section .skills .professional .list article .circle-container {
         width: 88px;
         height: 88px;
     }
@@ -297,15 +299,15 @@ section .skills .professional .list article .circle-container span {
     }
 }
 
-section .skills .professional .list article .circle-container svg text{
+section .skills .professional .list article .circle-container svg text {
     fill: white;
     font-weight: 900;
     font-size: 1.5rem;
 }
- 
+
 
 section .skills .professional .list article .circle-container svg .circle {
-    animation: dibujarCirculo 1s linear forwards;
+    animation: circle-bar-animated 1s linear forwards;
     border: 2px solid rgb(153, 255, 0);
     transition: all 1s ease-in-out;
     cx: 50%;
@@ -313,17 +315,16 @@ section .skills .professional .list article .circle-container svg .circle {
     r: 45%;
     fill: transparent;
     stroke: rgb(153, 255, 0);
-    stroke-width: 13;
+    stroke-width: 15;
     stroke-dasharray: 360;
     stroke-dashoffset: calc(360 + (360 * (var(--percentage) / 100)));
     stroke-linecap: round;
-    stroke-opacity: inherit;
 }
 
 
 
-@keyframes dibujarCirculo {
-    from{
+@keyframes circle-bar-animated {
+    from {
         stroke-dashoffset: 360;
     }
 }

@@ -79,7 +79,6 @@ export class SkillsComponent {
         item.nativeElement.style.transform = "translateY(0px)"
         let circle = item.nativeElement.querySelector(".circle") as HTMLElement
         circle.style.strokeDashoffset = "calc(360 + (360 * (var(--percentage) / 100)))"
-
       })
 
       item.nativeElement.addEventListener('notintersect', () => {
@@ -87,7 +86,6 @@ export class SkillsComponent {
         item.nativeElement.style.transform = "translateY(20px)"
         let circle = item.nativeElement.querySelector(".circle") as HTMLElement
         circle.style.strokeDashoffset = "360"
-        circle.style.animation = "none"
       })
     })
 
