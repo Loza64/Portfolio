@@ -23,11 +23,9 @@ body {
 }
 
 .snackbar-success {
-    background-color: transparent;
     background-color: rgb(15, 15, 15);
     color: white;
     border-radius: 20px;
-    text-align: center;
     font-size: 16px;
     font-weight: 900;
     text-align: center;
@@ -36,11 +34,9 @@ body {
 }
 
 .snackbar-error {
-    background-color: transparent;
     background-color: rgb(15, 15, 15);
     color: white;
     border-radius: 20px;
-    text-align: center;
     font-size: 16px;
     font-weight: 900;
     text-align: center;

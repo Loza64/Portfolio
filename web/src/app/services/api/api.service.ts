@@ -10,11 +10,13 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
+  private domain = 'http://localhost:4000';
+
   private getRequest(url: string): Observable<ResponseRest<any>> {
-    return this.http.get<ResponseRest<any>>(`http://localhost:3000/${url}`);
+    return this.http.get<ResponseRest<any>>(`${this.domain}/${url}`);
   }
   private postRequest(url: string, body: any): Observable<ResponseRest<any>> {
-    return this.http.post<ResponseRest<any>>(`http://localhost:3000/${url}`, body);
+    return this.http.post<ResponseRest<any>>(`${this.domain}/${url}`, body);
   }
 
   getProjects(): Observable<ResponseRest<Project[]>> {

@@ -4,9 +4,9 @@ export interface Image {
 }
 
 export interface MailMessage {
-  message: string;
   firstname: string;
   lastname: string;
   email: string;
   phone: string;
+  message: string;
 }

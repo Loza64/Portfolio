@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api/api.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
@@ -16,7 +16,6 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 export class FormComponent {
 
   fg: FormGroup
-  @ViewChild("form") form: ElementRef | undefined;
 
   constructor(
     private fb: FormBuilder,

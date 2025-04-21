@@ -15,6 +15,12 @@ form div {
     width: 100%;
 }
 
+@media (max-width: 380px) {
+    form div {
+        flex-direction: column;
+    }
+}
+
 form div input,
 form textarea {
     width: 100%;
