@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { About, Message, Professional, Project, ResponseRest, Technical } from '../ModelsInterface';
 import { Observable } from 'rxjs';
 
@@ -11,12 +11,22 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   private domain = 'https://loza-portfolio-server.vercel.app';
-
   private getRequest(url: string): Observable<ResponseRest<any>> {
-    return this.http.get<ResponseRest<any>>(`${this.domain}/${url}`);
+    const headers = new HttpHeaders({
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0'
+    });
+    return this.http.get<ResponseRest<any>>(`${this.domain}/${url}`, { headers });
   }
+
   private postRequest(url: string, body: any): Observable<ResponseRest<any>> {
-    return this.http.post<ResponseRest<any>>(`${this.domain}/${url}`, body);
+    const headers = new HttpHeaders({
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0'
+    });
+    return this.http.post<ResponseRest<any>>(`${this.domain}/${url}`, body, { headers });
   }
 
   getProjects(): Observable<ResponseRest<Project[]>> {
