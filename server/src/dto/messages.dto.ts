@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { IsEmail, IsNotEmpty, IsPhoneNumber, IsString, MinLength, Matches } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString, MinLength, Matches } from 'class-validator';
 
 export class MessagesDto {
   @IsNotEmpty()
@@ -29,7 +29,7 @@ export class MessagesDto {
   email: string;
 
   @IsNotEmpty()
-  @IsPhoneNumber(undefined)
+  @MinLength(4)
   @Matches(/^\+?[1-9]\d{1,14}([ -]?[\d()]+)*$/, {
     message: 'Phone number is invalid.',
   })

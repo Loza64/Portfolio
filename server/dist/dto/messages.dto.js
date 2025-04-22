@@ -48,7 +48,7 @@ __decorate([
 ], MessagesDto.prototype, "email", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
-    (0, class_validator_1.IsPhoneNumber)(undefined),
+    (0, class_validator_1.MinLength)(4),
     (0, class_validator_1.Matches)(/^\+?[1-9]\d{1,14}([ -]?[\d()]+)*$/, {
         message: 'Phone number is invalid.',
     }),
