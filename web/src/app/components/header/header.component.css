@@ -88,7 +88,23 @@ header .content p .cursor {
     }
 }
 
-header .content a {
+header .social{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+header .social a {
+    color: white;
+    font-size: 1.6rem;
+    transition: all .2s ease-in-out;
+}
+header .social a:hover {
+    color: rgb(153, 255, 0);
+    transform: scale(1.2);
+}
+
+header .content .cv {
     background: transparent;
     color: rgb(153, 255, 0);
     padding: .6rem 1rem;
@@ -116,12 +132,12 @@ header .content a {
     }
 }
 
-header .content a:hover {
+header .content .cv:hover {
     color: white;
     border: solid 4px white;
 }
 
-header .content a:active {
+header .content .cv:active {
     transform: scale(0.95);
 }
 
@@ -141,7 +157,7 @@ header .content a:active {
         font-size: 2rem;
     }
 
-    header .content a {
+    header .content .cv {
         font-size: 13px;
     }
 }
@@ -160,7 +176,7 @@ header .content a:active {
         font-size: 1.2rem;
     }
 
-    header .content a {
+    header .content .cv {
         font-size: 1rem;
     }
 }
@@ -174,7 +190,7 @@ header .content a:active {
         font-size: 0.8rem;
     }
 
-    header .content a {
+    header .content .cv {
         font-size: 1rem;
     }
 }
