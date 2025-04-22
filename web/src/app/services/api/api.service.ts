@@ -10,7 +10,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  private domain = 'http://localhost:4000';
+  private domain = 'https://loza-portfolio-server.vercel.app/';
 
   private getRequest(url: string): Observable<ResponseRest<any>> {
     return this.http.get<ResponseRest<any>>(`${this.domain}/${url}`);
