@@ -4,7 +4,6 @@ import { About, ResponseRest } from '../../../services/ModelsInterface';
 import { ApiService } from '../../../services/api/api.service';
 import { CommonModule } from '@angular/common';
 import { ObserverService } from '../../../services/ObserverService';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -19,7 +18,6 @@ export class AboutComponent {
   constructor(
     private api: ApiService,
     private observer: ObserverService,
-    private router: Router
   ) { }
 
   @ViewChildren("article") articles !: QueryList<ElementRef>;
@@ -63,7 +61,6 @@ export class AboutComponent {
     const sectionObserver = this.section.nativeElement as HTMLElement
 
     sectionObserver.addEventListener("intersect", () => {
-      this.router.navigateByUrl("/about")
       document.getElementById("/about")?.classList.add("active");
     })
 

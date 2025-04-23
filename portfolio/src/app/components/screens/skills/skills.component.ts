@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, QueryList, SimpleChanges, ViewChild, ViewChildren } from '@angular/core';
 import { Professional, ResponseRest, Technical } from '../../../services/ModelsInterface';
 import { ObserverService } from '../../../services/ObserverService';
-import { Router } from '@angular/router';
 import { ApiService } from '../../../services/api/api.service';
 
 @Component({
@@ -29,7 +28,7 @@ export class SkillsComponent {
   constructor(
     private api: ApiService,
     private observerService: ObserverService,
-    private router: Router) { }
+  ) { }
 
   ngOnInit(): void {
     this.api.getTechnicalSkills().subscribe((response: ResponseRest<Technical[]>) => {
@@ -93,7 +92,6 @@ export class SkillsComponent {
     this.observerService.observe(this.skills.nativeElement)
 
     this.skills.nativeElement.addEventListener("intersect", () => {
-      this.router.navigateByUrl("/skills")
       document.getElementById('/skills')?.classList.add('active');
     })
 
@@ -104,12 +102,6 @@ export class SkillsComponent {
   }
 
   ngAfterViewInit(): void {
-    this.observerService.observe(this.skills.nativeElement);
-
-    this.skills.nativeElement.addEventListener('intersect', () => {
-      this.router.navigateByUrl('/skills');
-    })
-
     this.initObserberSkills()
   }
 

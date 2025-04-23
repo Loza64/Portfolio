@@ -1,7 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormComponent } from '../../form/form.component';
 import { ObserverService } from '../../../services/ObserverService';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -13,7 +12,7 @@ import { Router } from '@angular/router';
 export class ContactComponent {
   @ViewChild("section") section !: ElementRef
 
-  constructor(private observerService: ObserverService, private router: Router,) {
+  constructor(private observerService: ObserverService) {
 
   }
 
@@ -23,7 +22,6 @@ export class ContactComponent {
 
     const element = this.section.nativeElement as HTMLElement;
     element.addEventListener("intersect", () => {
-      this.router.navigate(["/contact"])
       document.getElementById("/contact")?.classList.add("active")
     })
 

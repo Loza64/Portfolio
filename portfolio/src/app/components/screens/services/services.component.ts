@@ -3,7 +3,6 @@ import { SourceList } from '../../../services/SourceList';
 import { CommonModule } from '@angular/common';
 import { Service } from '../../../services/ModelsInterface';
 import { ObserverService } from '../../../services/ObserverService';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-services',
@@ -20,7 +19,7 @@ export class ServicesComponent {
   @ViewChildren("article") articles!: QueryList<ElementRef>;
   @ViewChild("section") services!: ElementRef
 
-  constructor(private list: SourceList, private intersectionService: ObserverService, private router: Router) { }
+  constructor(private list: SourceList, private intersectionService: ObserverService) { }
 
   ngOnInit(): void {
     this.listService = this.list.getServicesList();
@@ -52,7 +51,6 @@ export class ServicesComponent {
 
     this.services.nativeElement.addEventListener("intersect", () => {
       document.getElementById("/services")?.classList.add("active");
-      this.router.navigate(["/services"])
     })
 
     this.services.nativeElement.addEventListener("notintersect", () => {

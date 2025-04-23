@@ -1,6 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ObserverService } from '../../services/ObserverService';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,12 +12,11 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
 
   @ViewChild('header') header!: ElementRef;
-  constructor(private intersection: ObserverService, private router: Router) { }
+  constructor(private intersection: ObserverService) { }
 
   ngAfterViewInit() {
     this.intersection.observe(this.header.nativeElement)
     this.header.nativeElement.addEventListener('intersect', () => {
-      this.router.navigateByUrl('/');
       document.getElementById('/home')?.classList.add('active');
     })
 

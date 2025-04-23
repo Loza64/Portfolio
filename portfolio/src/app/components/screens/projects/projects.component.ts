@@ -2,7 +2,6 @@ import { Component, ViewChildren, QueryList, ElementRef, ViewChild } from '@angu
 import { ObserverService } from '../../../services/ObserverService';
 import { Project } from '../../../services/ModelsInterface';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 import { ApiService } from '../../../services/api/api.service';
 
 @Component({
@@ -19,7 +18,7 @@ export class ProjectsComponent {
   @ViewChildren("article") articles!: QueryList<ElementRef>;
   @ViewChild("section") section!: ElementRef;
 
-  constructor(private api: ApiService, private intersect: ObserverService, private route: Router) { }
+  constructor(private api: ApiService, private intersect: ObserverService) { }
 
   ngOnInit() {
     this.api.getProjects().subscribe((data) => {
@@ -45,7 +44,6 @@ export class ProjectsComponent {
     })
 
     this.section.nativeElement.addEventListener("intersect", () => {
-      this.route.navigateByUrl('/projects');
       document.getElementById("/projects")?.classList.add("active");
     })
 
