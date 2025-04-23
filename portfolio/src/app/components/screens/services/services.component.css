@@ -1,6 +1,6 @@
 .services {
-    padding:0 25px;
-    min-height: 100vh;
+    padding: 0 25px;
+    margin: 35px 0;
 }
 
 .services h2 {
@@ -10,16 +10,16 @@
     font-size: 2rem;
 }
 
-.services .list{
+.services .list {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
     justify-content: center;
     align-items: center;
-    padding:15px 0;
+    padding: 15px 0;
 }
 
-.services .list article{
+.services .list article {
     color: white;
     display: flex;
     flex-direction: column;
@@ -34,28 +34,29 @@
 }
 
 @keyframes show-service {
-    from{
+    from {
         transform: translateY(-50px);
         opacity: 0;
     }
-    to{
+
+    to {
         transform: translateY(0);
         opacity: 1;
     }
 }
 
 @media only screen and (max-width:601px) {
-    .services .list article{
+    .services .list article {
         max-width: none;
     }
 }
 
-.services .list article i{
+.services .list article i {
     color: rgb(153, 255, 0);
     font-size: 50px;
 }
 
-.services .list article span{
+.services .list article span {
     font-weight: 900;
     font-size: 20px;
 }
