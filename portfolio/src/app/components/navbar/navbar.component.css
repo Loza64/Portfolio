@@ -41,7 +41,7 @@
 }
 
 /********** Navbar Media **********/
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 780px) {
     .navbar-container {
         height: auto;
         width: 100vw;
