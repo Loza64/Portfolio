@@ -16,7 +16,7 @@ export class ServicesComponent {
   private listService: Service[] = [];
 
   @ViewChildren("article") articles!: QueryList<ElementRef>;
-  @ViewChild("section") services!: ElementRef
+  @ViewChild("section") section!: ElementRef
 
   constructor(private list: SourceList, private intersectionService: ObserverService) { }
 
@@ -45,19 +45,19 @@ export class ServicesComponent {
       })
     })
 
-    this.intersectionService.observe(this.services.nativeElement)
+    this.intersectionService.observe(this.section.nativeElement)
 
-    this.services.nativeElement.addEventListener("intersect", () => {
+    this.section.nativeElement.addEventListener("intersect", () => {
       document.getElementById("/services")?.classList.add("active");
     })
 
-    this.services.nativeElement.addEventListener("notintersect", () => {
+    this.section.nativeElement.addEventListener("notintersect", () => {
       document.getElementById("/services")?.classList.remove("active");
     })
   }
 
   ngOnDestroy(): void {
-    this.intersectionService.unobserve(this.services.nativeElement)
+    this.intersectionService.unobserve(this.section.nativeElement)
     this.articles.forEach(element => { this.intersectionService.unobserve(element.nativeElement) });
   }
 }
