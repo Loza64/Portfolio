@@ -14,7 +14,6 @@ import { ObserverService } from '../../../services/ObserverService';
 export class ServicesComponent {
 
   private listService: Service[] = [];
-  private intersection?: ObserverService = undefined
 
   @ViewChildren("article") articles!: QueryList<ElementRef>;
   @ViewChild("section") services!: ElementRef
@@ -23,7 +22,6 @@ export class ServicesComponent {
 
   ngOnInit(): void {
     this.listService = this.list.getServicesList();
-    this.intersection = this.intersectionService;
   }
 
   getServiceList(): Service[] {
@@ -32,7 +30,7 @@ export class ServicesComponent {
 
   ngAfterViewInit(): void {
     
-    this.articles.forEach(element => { this.intersection!.observe(element.nativeElement) });
+    this.articles.forEach(element => { this.intersectionService.observe(element.nativeElement) });
 
     this.articles.forEach(element => {
       element.nativeElement.addEventListener("intersect", () => {
@@ -47,7 +45,7 @@ export class ServicesComponent {
       })
     })
 
-    this.intersection!.observe(this.services.nativeElement)
+    this.intersectionService.observe(this.services.nativeElement)
 
     this.services.nativeElement.addEventListener("intersect", () => {
       document.getElementById("/services")?.classList.add("active");
@@ -59,7 +57,7 @@ export class ServicesComponent {
   }
 
   ngOnDestroy(): void {
-    this.intersection?.unobserve(this.services.nativeElement)
-    this.articles.forEach(element => { this.intersection!.unobserve(element.nativeElement) });
+    this.intersectionService.unobserve(this.services.nativeElement)
+    this.articles.forEach(element => { this.intersectionService.unobserve(element.nativeElement) });
   }
 }
