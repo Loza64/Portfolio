@@ -1,7 +1,7 @@
 <section class="services" id="services" #section>
     <h2>Mis servicios</h2>
     <div class="list">
-        <article *ngFor="let item of getServiceList()" #article>
+        <article *ngFor="let item of listService" #article>
             <i [ngClass]="item.icon"></i>
             <span>{{item.title}}</span>
             <p>{{item.text}}</p>

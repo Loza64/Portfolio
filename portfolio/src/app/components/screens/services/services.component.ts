@@ -13,22 +13,18 @@ import { ObserverService } from '../../../services/ObserverService';
 })
 export class ServicesComponent {
 
-  private listService: Service[] = [];
+  listService: Service[] = [];
 
   @ViewChildren("article") articles!: QueryList<ElementRef>;
   @ViewChild("section") section!: ElementRef
 
   constructor(private list: SourceList, private intersectionService: ObserverService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.listService = this.list.getServicesList();
   }
 
-  getServiceList(): Service[] {
-    return this.listService;
-  }
-
-  ngAfterViewInit(): void {
+  ngAfterViewInit() {
 
     this.intersectionService.observe(this.section.nativeElement);
     this.articles.forEach(element => { this.intersectionService.observe(element.nativeElement) });
@@ -55,7 +51,7 @@ export class ServicesComponent {
     })
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.intersectionService.unobserve(this.section.nativeElement)
     this.articles.forEach(element => { this.intersectionService.unobserve(element.nativeElement) });
   }
