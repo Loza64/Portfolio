@@ -25,7 +25,7 @@ header .content {
 }
 
 header .content h1 {
-    font-size: 3rem;
+    font-size: 2.6rem;
     font-weight: 700;
     color: white;
     margin-bottom: 1rem;
@@ -48,12 +48,11 @@ header .content h1 {
 
 header .content h1 span {
     color: rgb(153, 255, 0);
-    margin-bottom: 1rem;
 }
 
 
 header .content p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: rgb(145, 145, 145);
     margin-bottom: 2.5rem;
     font-weight: bold;
