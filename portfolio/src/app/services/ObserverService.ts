@@ -27,7 +27,7 @@ export class ObserverService {
                     {
                         root: null,
                         rootMargin: '1px',
-                        threshold: .35
+                        threshold: .2
                     }
                 );
             }

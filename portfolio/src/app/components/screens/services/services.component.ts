@@ -30,11 +30,11 @@ export class ServicesComponent {
     this.articles.forEach(element => { this.intersectionService.observe(element.nativeElement) });
 
     this.section.nativeElement.addEventListener("intersect", () => {
-      document.getElementById("/services")?.classList.add("active");
+      document.getElementById("/services")!.classList.add("active");
     })
 
     this.section.nativeElement.addEventListener("notintersect", () => {
-      document.getElementById("/services")?.classList.remove("active");
+      document.getElementById("/services")!.classList.remove("active");
     })
 
     this.articles.forEach(element => {
