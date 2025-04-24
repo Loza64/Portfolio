@@ -29,8 +29,17 @@ export class ServicesComponent {
   }
 
   ngAfterViewInit(): void {
-    
+
+    this.intersectionService.observe(this.section.nativeElement);
     this.articles.forEach(element => { this.intersectionService.observe(element.nativeElement) });
+
+    this.section.nativeElement.addEventListener("intersect", () => {
+      document.getElementById("/services")?.classList.add("active");
+    })
+
+    this.section.nativeElement.addEventListener("notintersect", () => {
+      document.getElementById("/services")?.classList.remove("active");
+    })
 
     this.articles.forEach(element => {
       element.nativeElement.addEventListener("intersect", () => {
@@ -43,16 +52,6 @@ export class ServicesComponent {
         article.style.opacity = "0";
         article.style.transform = "translateX(-20px)"
       })
-    })
-
-    this.intersectionService.observe(this.section.nativeElement)
-
-    this.section.nativeElement.addEventListener("intersect", () => {
-      document.getElementById("/services")?.classList.add("active");
-    })
-
-    this.section.nativeElement.addEventListener("notintersect", () => {
-      document.getElementById("/services")?.classList.remove("active");
     })
   }
 
