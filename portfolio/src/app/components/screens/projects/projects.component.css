@@ -1,7 +1,8 @@
-section{
+section {
     padding: 10px;
     margin: 35px 0;
 }
+
 section h2 {
     text-align: center;
     color: rgb(153, 255, 0);
@@ -92,22 +93,23 @@ section .list .card .body {
 section .list .card .body h3 {
     color: white;
     font-size: 25px;
-    font-weight: 900;;
+    font-weight: 900;
     text-transform: uppercase;
 }
 
-@media (max-width: 361px) {
+@media (max-width: 420px) {
     section .list .card .body h3 {
-        font-size: 18px;
+        font-size: 23px;
     }
 }
 
 section .list .card .body p {
     font-weight: 900;
 }
-@media (max-width: 361px){
+
+@media (max-width: 420px) {
     section .list .card .body p {
-        font-size: 10px;
+        font-size: 13px;
     }
 }
 
@@ -121,9 +123,9 @@ section .list .card .body a {
     transition: all .3s ease-in-out;
 }
 
-@media (max-width: 361px){
+@media (max-width: 420px) {
     section .list .card .body a {
-        font-size: 10px;
+        font-size: 12px;
         padding: 4px 10px;
     }
 }
