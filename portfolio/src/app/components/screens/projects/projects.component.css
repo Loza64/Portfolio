@@ -113,7 +113,14 @@ section .list .card .body p {
     }
 }
 
-section .list .card .body a {
+section .list .card .body .links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+section .list .card .body .links a {
     border: solid 3px rgb(153, 255, 0);
     text-decoration: none;
     color: white;
@@ -121,20 +128,23 @@ section .list .card .body a {
     padding: 6px 15px;
     border-radius: 5px;
     transition: all .3s ease-in-out;
+    gap: 3px;
+    display: flex;
+    align-items: center;
 }
 
 @media (max-width: 420px) {
-    section .list .card .body a {
+    section .list .card .body .links a {
         font-size: 12px;
         padding: 4px 10px;
     }
 }
 
-section .list .card .body a:hover {
+section .list .card .body .links a:hover {
     background-color: rgb(153, 255, 0);
     color: black;
 }
 
-section .list .card .body a:active {
+section .list .card .body .links a:active {
     transform: scale(0.9);
 }

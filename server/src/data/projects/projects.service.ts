@@ -13,23 +13,18 @@ export class ProjectsService {
         private cloudinary: CloudinaryService,
     ) { }
 
-    async createProject(project: ProjectDto, image: Express.Multer.File): Promise<Projects> {
+    async createProject(project: ProjectDto, file: Express.Multer.File): Promise<Projects> {
         try {
-            const img = await this.cloudinary.uploadImage(image);
-            const { description, title, url } = project;
+            const image = await this.cloudinary.uploadImage(file);
+            const { description, title, links } = project;
 
-            if (img instanceof Error) {
+            if (image instanceof Error) {
                 throw new InternalServerErrorException('Error uploading image to Cloudinary');
             }
 
-            const newProject = new this.projects({
-                title,
-                description,
-                url,
-                image: { public_id: img.public_id, url: img.url }
-            });
-
+            const newProject = new this.projects({ title, description, links, image });
             return await newProject.save();
+            
         } catch (error) {
             if (error instanceof Error) {
                 throw new InternalServerErrorException('Error creating project: ' + error.message);

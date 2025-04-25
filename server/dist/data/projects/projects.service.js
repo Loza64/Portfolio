@@ -25,19 +25,14 @@ let ProjectsService = class ProjectsService {
         this.projects = projects;
         this.cloudinary = cloudinary;
     }
-    async createProject(project, image) {
+    async createProject(project, file) {
         try {
-            const img = await this.cloudinary.uploadImage(image);
-            const { description, title, url } = project;
-            if (img instanceof Error) {
+            const image = await this.cloudinary.uploadImage(file);
+            const { description, title, links } = project;
+            if (image instanceof Error) {
                 throw new common_1.InternalServerErrorException('Error uploading image to Cloudinary');
             }
-            const newProject = new this.projects({
-                title,
-                description,
-                url,
-                image: { public_id: img.public_id, url: img.url }
-            });
+            const newProject = new this.projects({ title, description, links, image });
             return await newProject.save();
         }
         catch (error) {

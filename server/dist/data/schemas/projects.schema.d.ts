@@ -1,19 +1,17 @@
 import { Document } from 'mongoose';
-import { Image } from './image.schema';
-export declare const ImageSchema: import("mongoose").Schema<Image, import("mongoose").Model<Image, any, any, any, Document<unknown, any, Image> & Image & {
-    _id: import("mongoose").Types.ObjectId;
-} & {
-    __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Image, Document<unknown, {}, import("mongoose").FlatRecord<Image>> & import("mongoose").FlatRecord<Image> & {
-    _id: import("mongoose").Types.ObjectId;
-} & {
-    __v: number;
-}>;
+export declare class Links {
+    github?: string | null;
+    app?: string | null;
+}
+export declare class Image {
+    url: string;
+    public_id: string;
+}
 export declare class Projects extends Document {
     title: string;
     description: string;
     image: Image;
-    url: string;
+    links: Links;
 }
 export declare const ProjectSchema: import("mongoose").Schema<Projects, import("mongoose").Model<Projects, any, any, any, Document<unknown, any, Projects> & Projects & Required<{
     _id: unknown;

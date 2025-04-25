@@ -9,16 +9,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProjectSchema = exports.Projects = exports.ImageSchema = void 0;
+exports.ProjectSchema = exports.Projects = exports.Image = exports.Links = void 0;
 const mongoose_1 = require("mongoose");
 const mongoose_2 = require("@nestjs/mongoose");
-const image_schema_1 = require("./image.schema");
-exports.ImageSchema = mongoose_2.SchemaFactory.createForClass(image_schema_1.Image);
+let Links = class Links {
+    github;
+    app;
+};
+exports.Links = Links;
+__decorate([
+    (0, mongoose_2.Prop)({ required: false, maxlength: 100, default: null, type: String }),
+    __metadata("design:type", Object)
+], Links.prototype, "github", void 0);
+__decorate([
+    (0, mongoose_2.Prop)({ required: false, maxlength: 500, default: null, type: String }),
+    __metadata("design:type", Object)
+], Links.prototype, "app", void 0);
+exports.Links = Links = __decorate([
+    (0, mongoose_2.Schema)({ versionKey: false })
+], Links);
+let Image = class Image {
+    url;
+    public_id;
+};
+exports.Image = Image;
+__decorate([
+    (0, mongoose_2.Prop)({ required: true }),
+    __metadata("design:type", String)
+], Image.prototype, "url", void 0);
+__decorate([
+    (0, mongoose_2.Prop)({ required: true }),
+    __metadata("design:type", String)
+], Image.prototype, "public_id", void 0);
+exports.Image = Image = __decorate([
+    (0, mongoose_2.Schema)({ versionKey: false })
+], Image);
 let Projects = class Projects extends mongoose_1.Document {
     title;
     description;
     image;
-    url;
+    links;
 };
 exports.Projects = Projects;
 __decorate([
@@ -30,13 +60,13 @@ __decorate([
     __metadata("design:type", String)
 ], Projects.prototype, "description", void 0);
 __decorate([
-    (0, mongoose_2.Prop)({ required: true, type: image_schema_1.Image, _id: false }),
-    __metadata("design:type", image_schema_1.Image)
+    (0, mongoose_2.Prop)({ required: true, type: Image, _id: false }),
+    __metadata("design:type", Image)
 ], Projects.prototype, "image", void 0);
 __decorate([
-    (0, mongoose_2.Prop)({ required: false, maxlength: 400, default: null }),
-    __metadata("design:type", String)
-], Projects.prototype, "url", void 0);
+    (0, mongoose_2.Prop)({ required: false, maxlength: 400, type: Links, _id: false }),
+    __metadata("design:type", Links)
+], Projects.prototype, "links", void 0);
 exports.Projects = Projects = __decorate([
     (0, mongoose_2.Schema)({ versionKey: false })
 ], Projects);

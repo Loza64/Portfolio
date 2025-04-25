@@ -6,6 +6,6 @@ export declare class ProjectsService {
     private projects;
     private cloudinary;
     constructor(projects: Model<Projects>, cloudinary: CloudinaryService);
-    createProject(project: ProjectDto, image: Express.Multer.File): Promise<Projects>;
+    createProject(project: ProjectDto, file: Express.Multer.File): Promise<Projects>;
     getAllProjects(): Promise<Projects[]>;
 }

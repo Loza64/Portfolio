@@ -19,7 +19,10 @@ export interface Project {
         public_id: String,
         url: String
     },
-    url: String
+    links: {
+        github: string,
+        app: string
+    }
 }
 
 export interface Technical {
