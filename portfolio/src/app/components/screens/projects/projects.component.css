@@ -121,11 +121,11 @@ section .list .card .body .links{
 }
 
 section .list .card .body .links a {
-    border: solid 3px rgb(153, 255, 0);
+    background-color: #1e1e1e;;
     text-decoration: none;
     color: white;
     font-weight: 900;
-    padding: 6px 15px;
+    padding: 6.5px 15px;
     border-radius: 5px;
     transition: all .3s ease-in-out;
     gap: 3px;
@@ -142,6 +142,7 @@ section .list .card .body .links a {
 
 section .list .card .body .links a:hover {
     background-color: rgb(153, 255, 0);
+    box-shadow: 3px 3px 3px rgb(153, 255, 0);
     color: black;
 }
 
