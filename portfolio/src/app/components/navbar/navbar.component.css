@@ -119,6 +119,13 @@
     transform: scale(120%);
 }
 
+@media only screen and (max-width: 790px){
+    .navbar-container a:hover mat-icon{
+        color: white;
+        transform: scale(100%);
+    }
+}
+
 .navbar-container .active:hover mat-icon {
     color: black;
     transform: scale(120%);
@@ -140,8 +147,8 @@
 }
 
 @media only screen and (max-width: 600px) {
+    
     .navbar-container a {
-        flex-direction: column;
         margin: 1px 15px;
     }
 
