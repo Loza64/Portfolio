@@ -300,7 +300,7 @@ section .skills .professional .list article .circle-container svg .circle {
     transition: all 1s ease-in-out;
     cx: 50%;
     cy: 50%;
-    r: 43%;
+    r: 45%;
     fill: transparent;
     stroke: rgb(153, 255, 0);
     stroke-width: 15;
