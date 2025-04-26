@@ -28,7 +28,7 @@ section .list {
 
 section .list .card {
     width: 405px;
-    height: 220px;
+    height: 218px;
     perspective: 1000px;
     transition: all .3s ease-in-out;
     border-radius: 5px;
