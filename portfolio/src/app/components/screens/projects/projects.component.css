@@ -1,6 +1,6 @@
 section {
     padding: 10px;
-    margin: 35px;
+    margin: 30px 55px;
 }
 
 @media (max-width: 395px) {
@@ -27,7 +27,7 @@ section .list {
 }
 
 section .list .card {
-    width: 425px;
+    width: 405px;
     height: 220px;
     perspective: 1000px;
     transition: all .3s ease-in-out;

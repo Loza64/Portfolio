@@ -1,3 +1,7 @@
+section{
+    margin: 30px 75px;
+}
+
 section h2 {
     text-align: center;
     color: white;
@@ -7,8 +11,6 @@ section h2 {
 }
 
 section .skills {
-    margin: 20px 0;
-    padding: 0 5rem;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -86,13 +88,13 @@ section .skills .technicals .list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 
 section .skills .technicals .list article {
     width: 100%;
-    max-width: 20rem;
+    max-width: 18rem;
     border-radius: 5px 5px 0 0;
     background-color: #1e1e1e;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -133,13 +135,13 @@ section .skills .technicals .list article .content {
 }
 
 section .skills .technicals .list article .content img {
-    width: 35px;
+    width: 30px;
     height: auto;
     border-radius: 5px;
 }
 
 section .skills .technicals .list article .content .icon label {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 900;
     text-align: center;
     color: white;
