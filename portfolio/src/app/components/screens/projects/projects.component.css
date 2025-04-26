@@ -1,6 +1,12 @@
 section {
     padding: 10px;
-    margin: 35px 0;
+    margin: 35px;
+}
+
+@media (max-width: 395px) {
+    section {
+        margin: 35px 10px;
+    }
 }
 
 section h2 {
@@ -17,7 +23,7 @@ section .list {
     align-items: center;
     flex-wrap: wrap;
     gap: 30px;
-    margin: 10px;
+    
 }
 
 section .list .card {
@@ -121,7 +127,7 @@ section .list .card .body .links{
 }
 
 section .list .card .body .links a {
-    background-color: #1e1e1e;;
+    background-color: #252525;
     text-decoration: none;
     color: white;
     font-weight: 900;

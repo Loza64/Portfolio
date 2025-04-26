@@ -49,7 +49,7 @@ section .skills .technicals .options button {
     padding: 0.7rem 1em;
     border: none;
     border-radius: 5px;
-    background-color: #1e1e1e;
+    background-color: #252525;
     color: white;
     font-size: 1rem;
     font-weight: 900;
@@ -193,6 +193,8 @@ section .skills .technicals .list article .bar {
     }
 }
 
+
+/*------------------------------------ Professionals skills */
 section .skills .professional {
     width: 100%;
 }
@@ -202,7 +204,7 @@ section .skills .professional .list {
     flex-wrap: wrap-reverse;
     align-items: center;
     justify-content: center;
-    gap: 40px;
+    gap: 30px;
     padding: 10px 20px;
     width: 100%;
 }
@@ -230,6 +232,13 @@ section .skills .professional .list article {
     animation-name: animate-article-circle;
     animation-duration: 1s;
     animation-iteration-count: 1;
+    gap: 10px;
+}
+
+@media only screen and (max-width:400px){
+    section .skills .professional .list article {
+        gap: 0px;
+    }
 }
 
 @keyframes animate-article-circle {
@@ -250,7 +259,6 @@ section .skills .professional .list article span {
     font-size: 1.2rem;
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
 }
 
 @media only screen and (max-width:400px) {
@@ -275,8 +283,8 @@ section .skills .professional .list article .circle-container {
 
 @media only screen and (max-width:400px) {
     section .skills .professional .list article .circle-container {
-        width: 88px;
-        height: 88px;
+        width: 100px;
+        height: 100px;
     }
 }
 

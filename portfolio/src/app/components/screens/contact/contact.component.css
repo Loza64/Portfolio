@@ -1,4 +1,4 @@
-section{
+section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,17 +7,18 @@ section{
 }
 
 
-section .contact-header{
+section .contact-header {
     text-align: center;
     color: white;
     font-size: 25px;
     margin: 20px 0;
 }
 
-section .contact-header span{
+section .contact-header span {
     color: rgb(153, 255, 0)
 }
-section .form-container{
+
+section .form-container {
     width: 100%;
     max-width: 550px;
 }

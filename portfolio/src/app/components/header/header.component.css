@@ -14,14 +14,13 @@ header {
         flex-direction: column-reverse;
         padding: 3rem 1rem;
         height: auto;
-        min-height: 100vh;
     }
 }
 
 /** content */
 header .content {
     width: 100%;
-    max-width: 60rem;
+    max-width: 70rem;
 }
 
 header .content h1 {

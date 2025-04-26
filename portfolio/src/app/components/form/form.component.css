@@ -59,19 +59,45 @@ form textarea:focus.error {
 
 form input[type="submit"] {
     cursor: pointer;
-    background-color: rgb(153, 255, 0);
-    color: black;
+    background-color: rgb(36, 36, 36);
+    color: white;
     font-weight: 900;
     border: none;
     padding: 10px 20px;
-    border-radius: 30px;
+    border-radius: 5px;
     font-size: 1rem;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 2px 2px rgb(153, 255, 0);
+    transition: all 0.2s ease-in-out;
 }
 
 form input[type="submit"]:hover {
+    color: black;
     background-color: rgb(153, 255, 0);
-    ;
-    box-shadow: 0 0 3px 3px rgb(153, 255, 0);
+    box-shadow: 3px 3px 3px rgb(153, 255, 0);
+}
+
+form input[type="submit"]:disabled {
+    background-color: rgb(36, 36, 36);
+    color: rgb(153, 255, 0);
+    cursor: not-allowed;
+    box-shadow: 3px 3px 3px rgb(153, 255, 0);
+    animation: loading 1s infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+form input[type="submit"]:disabled:hover {
+    background-color: rgb(36, 36, 36);
+    color: rgb(153, 255, 0);
+    cursor: not-allowed;
+}
+@keyframes loading {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.05);
+    }
+
 }

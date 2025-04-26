@@ -14,5 +14,5 @@
     <textarea formControlName="message" id="message" placeholder="mensaje" rows="10"
         [class.error]="!fg.get('message')?.valid && fg.get('message')?.touched"></textarea>
 
-    <input type="submit" [value]="submitButtonText" id="send" [disabled]="isLoading">
+    <input type="submit" class="loading" [value]="submitButtonText" id="send" [disabled]="isLoading">
 </form>
