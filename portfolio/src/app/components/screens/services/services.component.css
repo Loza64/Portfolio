@@ -3,7 +3,7 @@
     margin: 30px 55px;
 }
 
-@media only screen and (max-width: 395px) {
+@media only screen and (max-width: 470px) {
     .services {
         margin: 35px 10px;
     }

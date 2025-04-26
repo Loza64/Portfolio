@@ -2,6 +2,11 @@ section{
     margin: 30px 75px;
 }
 
+@media screen and (max-width: 475px) {
+    section {
+        margin: 30px 10px;
+    }
+}
 section h2 {
     text-align: center;
     color: white;
@@ -65,7 +70,7 @@ section .skills .technicals .options button:hover {
     box-shadow: 4px 4px 4px rgb(153, 255, 0);
 }
 
-@media only screen and (max-width:350px) {
+@media only screen and (max-width:470px) {
     section .skills .technicals .options button {
         font-size: .8rem;
         padding: .5rem;

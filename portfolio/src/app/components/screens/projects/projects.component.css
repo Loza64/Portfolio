@@ -3,7 +3,7 @@ section {
     margin: 30px 55px;
 }
 
-@media (max-width: 395px) {
+@media (max-width: 470px) {
     section {
         margin: 35px 10px;
     }
