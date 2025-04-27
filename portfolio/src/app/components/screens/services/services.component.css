@@ -33,7 +33,7 @@
     max-width: 26rem;
     box-shadow: 5px 5px 5px rgb(153, 255, 0);
     border-radius: 10px;
-    padding: 30px 2px;
+    padding: 30px 5px;
     transition: all .3s ease-in-out;
     animation: show-service 1s ease-in-out, shadow-animate 1.5s infinite;
 }
