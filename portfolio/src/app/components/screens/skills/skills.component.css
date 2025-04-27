@@ -217,7 +217,7 @@ section .skills .professional .list {
     width: 100%;
 }
 
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: 1650px) {
     section .skills .professional .list {
         grid-template-columns: repeat(auto-fill, minmax(9rem, 3fr));
     }

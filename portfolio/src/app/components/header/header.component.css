@@ -234,11 +234,11 @@ header .img-container {
 
 @keyframes shadow-img {
     0% {
-        box-shadow: 0 0 5px 5px rgb(153, 255, 0);
+        box-shadow: 0 0 7px 7px rgb(153, 255, 0);
     }
 
     100% {
-        box-shadow: 0 0 10px 10px rgb(153, 255, 0);
+        box-shadow: 0 0 7px 7px white;
     }
 }
 
