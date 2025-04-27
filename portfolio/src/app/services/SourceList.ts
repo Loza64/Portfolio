@@ -12,17 +12,7 @@ export class SourceList {
         {
             "icon": "fas fa-laptop-code",
             "title": "Desarrollo web",
-            "text": "Creo aplicaciones web excepcionales y dinámicas. Mi solución es eficiente y optimizada, asegurando una mejor experiencia de usuario para tus clientes."
-        },
-        {
-            "icon": "fas fa-mobile-alt",
-            "title": "Desarrollo móvil",
-            "text": "Desarrollo aplicaciones móviles atractivas y seguras para Android y multiplataforma, optimizando constantemente la experiencia del usuario."
-        },
-        {
-            "icon": "fas fa-desktop",
-            "title": "Desarrollo de escritorio",
-            "text": "Creo aplicaciones de escritorio eficientes, aplicando patrones de diseño efectivos para lograr un alto rendimiento, seguridad y buena interacción con el usuario."
+            "text": "Creo aplicaciones web excepcionales y dinámicas. Mi solución es eficiente y optimizada, asegurando una mejor experiencia de usuario."
         },
         {
             "icon": "fas fa-shopping-cart",
@@ -32,7 +22,7 @@ export class SourceList {
         {
             "icon": "fas fa-chart-line",
             "title": "SEO y Marketing Digital",
-            "text": "Ofrezco servicios SEO para mejorar la visibilidad online de tu web y fortalecer tu estrategia de marketing digital."
+            "text": "Ofrezco servicios SEO para mejorar la visibilidad online de paginas web, fortalecer estrategias y potenciar la visibilidad en línea de sitios web."
         },
         {
             "icon": "fas fa-tools",
