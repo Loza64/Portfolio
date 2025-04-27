@@ -27,7 +27,7 @@ export class SourceList {
         {
             "icon": "fas fa-tools",
             "title": "Soporte y Mantenimiento",
-            "text": "Ofrezco planes de mantenimiento a medida para asegurar el correcto funcionamiento a largo plazo."
+            "text": "Ofrezco planes de mantenimiento a medida para asegurar el funcionamiento a largo plazo, garantizando actualizaciones y una optimización efectiva"
         },
         {
             "icon": "fas fa-code",
