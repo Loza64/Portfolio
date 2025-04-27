@@ -209,7 +209,7 @@ section .skills .professional {
 
 section .skills .professional .list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10rem, 2fr));
+    grid-template-columns: repeat(auto-fill, minmax(8rem, 2fr));
     text-align: center;
     justify-items: center;
     gap: 35px;
