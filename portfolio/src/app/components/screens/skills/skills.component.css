@@ -209,7 +209,7 @@ section .skills .professional {
 
 section .skills .professional .list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(8rem, 2fr));
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 30fr));
     text-align: center;
     justify-items: center;
     gap: 35px;
@@ -217,8 +217,15 @@ section .skills .professional .list {
     width: 100%;
 }
 
+@media screen and (max-width: 1920px) {
+    section .skills .professional .list {
+        grid-template-columns: repeat(auto-fill, minmax(9rem, 3fr));
+    }
+}
+
 @media screen and (max-width: 438px) {
     section .skills .professional .list {
+        grid-template-columns: repeat(auto-fill, minmax(5.9rem, 3fr));
         gap: 10px;
     }
 }
