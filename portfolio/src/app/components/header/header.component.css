@@ -213,7 +213,7 @@ header .img-container {
 
 header .img-container {
     width: 100%;
-    max-width: 20rem;
+    max-width: 19rem;
     transition: all .3s ease-in-out;
     box-shadow: rgb(153, 255, 0) 0px 0px 10px 10px;
     border-radius: 10px;
