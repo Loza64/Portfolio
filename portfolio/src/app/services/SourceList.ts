@@ -27,17 +27,17 @@ export class SourceList {
         {
             "icon": "fas fa-tools",
             "title": "Soporte y Mantenimiento",
-            "text": "Ofrezco planes de mantenimiento a medida para asegurar el funcionamiento a largo plazo, garantizando actualizaciones y una optimización efectiva"
+            "text": "Ofrezco planes de mantenimiento a medida para asegurar el funcionamiento a largo plazo, garantizando actualizaciones y una optimización efectiva a largo plazo."
         },
         {
             "icon": "fas fa-code",
             "title": "Desarrollo de APIs",
-            "text": "Creo APIs que permiten la integración de sistemas y desarrollan la funcionalidad de múltiples aplicaciones."
+            "text": "Creo APIs que permiten la integración de sistemas y desarrollan la funcionalidad de aplicaciones, optimizando así la comunicación entre diferentes plataformas para ofrecer una experiencia de usuario."
         },
         {
             "icon": "fas fa-project-diagram",
             "title": "Integración de Sistemas",
-            "text": "Ayudo a unir aplicaciones y plataformas para mejorar la eficiencia y operatividad de tu negocio en su conjunto."
+            "text": "Ayudo a unir aplicaciones y plataformas para mejorar la eficiencia y operatividad de tu negocio en su conjunto, facilitando la toma de decisiones y potenciando el crecimiento sostenido mediante soluciones integradas."
         },
         {
             "icon": "fas fa-cogs",

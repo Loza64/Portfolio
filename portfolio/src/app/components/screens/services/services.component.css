@@ -19,7 +19,7 @@
 .services .list {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 20px;
     justify-content: center;
     align-items: center;
 }
@@ -30,7 +30,7 @@
     flex-direction: column;
     text-align: center;
     gap: 10px;
-    max-width: 19rem;
+    max-width: 26rem;
     box-shadow: 5px 5px 5px rgb(153, 255, 0);
     border-radius: 10px;
     padding: 30px 2px;
