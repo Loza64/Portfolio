@@ -219,7 +219,7 @@ section .skills .professional .list {
 
 @media screen and (max-width: 438px) {
     section .skills .professional .list {
-        gap: 15px;
+        gap: 10px;
     }
 }
 
