@@ -12,24 +12,24 @@ export const routes: Routes = [
         component: HomeComponent,
     },
     {
-        path:'contact', 
+        path: 'contact',
         component: ContactComponent
     },
     {
-        path:'services', 
+        path: 'services',
         component: ServicesComponent
     },
 
     {
-        path:'skills', 
+        path: 'skills',
         component: SkillsComponent
     },
     {
-        path:'about', 
+        path: 'about',
         component: AboutComponent
     },
     {
-        path:'projects', 
+        path: 'projects',
         component: ProjectsComponent
     }
 ];
