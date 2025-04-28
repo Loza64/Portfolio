@@ -22,8 +22,13 @@ section .list {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 30px;
-    
+    gap: 30px 40px;
+}
+
+@media (max-width: 990px) {
+    section .list {
+        gap: 20px;
+    }
 }
 
 section .list .card {
