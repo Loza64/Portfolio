@@ -65,7 +65,10 @@ section .skills .technicals .options button {
     transition: all 0.3s;
 }
 
-section .skills .technicals .options button:hover {
+section .skills .technicals .options button:hover{
+    box-shadow: 4px 4px 4px rgb(153, 255, 0);
+}
+section .skills .technicals .options button.active {
     background-color: rgb(153, 255, 0);
     color: #1e1e1e;
     box-shadow: 4px 4px 4px rgb(153, 255, 0);

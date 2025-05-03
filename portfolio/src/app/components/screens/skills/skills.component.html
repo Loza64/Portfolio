@@ -4,10 +4,10 @@
         <div class="technicals">
             <h3>Tecnicos</h3>
             <div class="options">
-                <button (click)="filter = 'backend'">Backend</button>
-                <button (click)="filter = 'frontend'">Frontend</button>
-                <button (click)="filter = 'database'">Database</button>
-                <button (click)="filter = 'others'">Otros</button>
+                <button (click)="filter = 'backend'" [class.active]="filter === 'backend'">Backend</button>
+                <button (click)="filter = 'frontend'" [class.active]="filter === 'frontend'">Frontend</button>
+                <button (click)="filter = 'database'" [class.active]="filter === 'database'">Database</button>
+                <button (click)="filter = 'others'" [class.active]="filter === 'others'">Otros</button>
             </div>
             <div class="list">
                 <article *ngFor="let skill of getTechnicalList()" #articleTechnical>
@@ -30,7 +30,8 @@
                     <div class="circle-container">
                         <svg viewBox="0 0 100 100">
                             <circle class="circle" [ngStyle]="{'--percentage': skill.percentage}" />
-                            <text x="52%" y="54%" text-anchor="middle" dominant-baseline="middle">{{skill.percentage}}%</text>
+                            <text x="52%" y="54%" text-anchor="middle"
+                                dominant-baseline="middle">{{skill.percentage}}%</text>
                         </svg>
                     </div>
                     <span>{{skill.name}}</span>
