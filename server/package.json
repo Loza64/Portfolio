@@ -31,7 +31,7 @@
     "cloudinary": "^2.6.0",
     "dotenv": "^16.5.0",
     "mongoose": "^8.13.2",
-    "multer": "^1.4.5-lts.2",
+    "multer": "^2.0.1",
     "nodemailer": "^6.10.1",
     "nodemailer-smtp-transport": "^2.7.4",
     "reflect-metadata": "^0.2.2",
