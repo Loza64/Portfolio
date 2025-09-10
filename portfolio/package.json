@@ -19,7 +19,7 @@
     "@angular/material": "^19.2.1",
     "@angular/platform-browser": "^19.1.0",
     "@angular/platform-browser-dynamic": "^19.1.0",
-    "@angular/platform-server": "^19.1.0",
+    "@angular/platform-server": "^19.2.15",
     "@angular/router": "^19.1.0",
     "@angular/ssr": "^19.1.7",
     "@coreui/icons": "^3.0.1",
