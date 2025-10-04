@@ -10,8 +10,6 @@ export class ObserverService {
     constructor(private ngZone: NgZone) {
 
         this.ngZone.runOutsideAngular(() => {
-            // Check if IntersectionObserver is supported
-            // and create an instance if it is
             if (typeof IntersectionObserver !== 'undefined') {
                 this.observer = new IntersectionObserver(
                     (entries) => {

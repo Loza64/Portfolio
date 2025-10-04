@@ -13,6 +13,7 @@ export interface ResponseRest<T> {
 }
 
 export interface Project {
+    _id: string
     title: String,
     description: String,
     image: {

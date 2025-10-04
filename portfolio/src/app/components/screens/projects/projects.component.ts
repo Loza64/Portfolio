@@ -1,6 +1,6 @@
 import { Component, ViewChildren, QueryList, ElementRef, ViewChild } from '@angular/core';
 import { ObserverService } from '../../../services/ObserverService';
-import { Project } from '../../../services/ModelsInterface';
+import { Project, ResponseRest } from '../../../services/ModelsInterface';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../../services/api/api.service';
 
@@ -21,8 +21,10 @@ export class ProjectsComponent {
   constructor(private api: ApiService, private intersect: ObserverService) { }
 
   ngOnInit() {
-    this.api.getProjects().subscribe((data) => {
-      this.projects = data.result || [];
+    this.api.getProjects().subscribe((data: ResponseRest<Project[]>) => {
+      this.projects = Array.isArray(data.result)
+        ? [...data.result].sort((a, b) => String(b._id).localeCompare(String(a._id)))
+        : [];
     });
   }
   ngAfterViewInit() {
